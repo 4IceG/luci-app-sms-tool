@@ -1,0 +1,72 @@
+<%
+
+
+
+-%>
+
+<%+header%>
+
+
+<style>
+
+textarea {
+   height:120px;
+   max-height:120px;
+   min-height:120px;
+   min-width:100%;
+   resize:vertical;
+   }
+
+}
+
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script>
+
+            function countChar(val)
+            {
+
+             var limit = 160;
+
+            if ( val.length > limit )
+              {
+              $("#sms").val(val.substring(0, limit-1));
+              val.length = limit;
+              }
+
+              $("#count").html((limit)-(val.length));
+              }
+
+        </script>
+
+<h2><%:SMS Messages%></h2>
+	<label><%:Mini gui for handling messages via sms_tool.%></label>
+	<p></p>
+
+	<h4><%:Send Messages%></h4>
+
+	<div class="table" width="100%">
+		<div class="tr">
+			<div class="td left" style="width:15%;"><%:Send to%>:</div>
+			<div class="td left" style="width:42%;"><input type="text" id="numer" required minlength="4" maxlength="9" size="11"></div>
+			<div class="td left" style="width:42%;"></div>
+		</div>
+		<div class="tr">
+			<div class="td left" style="width:15%;"><%:Message text%>:</div>
+			<div class="td left" style="width:42%;"><textarea id="sms" onKeyUp="countChar(this.value)" required></textarea><div id="count">160</div></div>
+			<div class="td left" style="width:42%;"></div>
+		</div>
+
+	</div>
+	<div class="table" width="100%">
+		<div class="tr cbi-rowstyle-2">
+		<div class="td center"><input type="button" id="sendsms" class="cbi-button" value="<%:Send Message%>" /></div>
+		</div>
+	</div>
+
+
+
+<%+footer%>

@@ -1,0 +1,28 @@
+<%
+
+
+-%>
+
+<%+header%>
+
+<h2>SMS Message</h2>
+	<label><%:Mini gui for handling messages via sms_tool.%></label>
+	<p></p>
+
+	<h4>USSD</h4>
+	<div class="table" width="100%">
+		<div class="tr">
+			<div class="td left" style="width:15%;"><%:Code to send%>:</div>
+			<div class="td left" style="width:42%;"><input type="text" id="numer" required minlength="4" maxlength="9" size="11"></div>
+			<div class="td left" style="width:42%;"></div>
+		</div>
+
+	</div>
+	<div class="table" width="100%">
+		<div class="tr cbi-rowstyle-2">
+		<div class="td center"><input type="button" id="sendussd" class="cbi-button" value="<%:Send Code%>" /></div>
+		</div>
+	</div>
+
+
+<%+footer%>

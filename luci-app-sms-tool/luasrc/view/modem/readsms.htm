@@ -1,0 +1,129 @@
+<%
+	local util = require "luci.util"
+	local fs = require "nixio.fs"
+	local sys = require "luci.sys"
+	local http = require "luci.http"
+	local dispatcher = require "luci.dispatcher"
+	local http = require "luci.http"
+	local sys = require "luci.sys"
+	local uci = require "luci.model.uci".cursor()
+
+	local devv = tostring(uci:get("sms_tool", "general", "device"))
+
+	local sms = luci.sys.exec("sms_tool -d " .. devv .. " recv")
+
+	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
+	local all = string.sub (statusb, -3)
+	local usex = string.sub (statusb, 23, 27)
+	local use = string.match(usex, '%d+')
+	local location = ""
+	local l = string.sub (statusb, 15, 16)
+	if l == "SM" then
+      		location = translate("SIM Card")
+ 	end
+
+-%>
+
+<%+header%>
+
+<style>
+
+textarea {
+
+width:100%;
+height:180px;
+max-width:100%;
+min-width:100%;
+
+}
+
+</style>
+
+<script type="text/javascript">//<![CDATA[
+
+	function deleteone(btn)
+	{
+		var e = document.getElementById("smsnumber");
+		var smsindex = e.options[e.selectedIndex].value;
+	if (confirm("Delete message number " + smsindex + "?")) {
+
+
+		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "delete_one")%>/' + smsindex, null,
+
+			function()
+			{
+			window.location.reload();
+			}
+		);
+
+		return false;
+		}
+	}
+
+	function deleteall(btn)
+	{
+	if (confirm("Delete all the messages?")) {
+
+		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "delete_all")%>/' , null,
+
+			function()
+			{
+			window.location.reload();
+			}
+		);
+
+		return false;
+		}
+	}
+
+//]]></script>
+
+
+<h2><%:SMS Messages%></h2>
+	<label><%:Mini gui for handling messages via sms_tool.%></label>
+	<p></p>
+
+	<h4><%:Received Messages%></h4>
+	<div class="table" width="100%">
+	<div class="tr"><div class="td left" width="33%"><%:Messages store in%>:</div><div class="td left"><%=location:pcdata()%></div></div>
+	<div class="tr"><div class="td left" width="33%"><%:Messages (Inbox / Maximum)%>:</div><div class="td left" ><%=use:pcdata()%> / <%=all:pcdata()%></div></div>
+	</div>
+	<div id="content_sms">
+	<textarea readonly placeholder="<%=sms:cmatch("\n")+2%>"><%=sms:pcdata()%></textarea>
+	</div>
+
+
+
+	<div class="table" width="100%">
+	<div class="tr">
+	<div class="td left" style="width:10%;">
+
+		<select id="smsnumber">
+			<script language="javascript" type="text/javascript"> 
+			var x = <%=all:pcdata()%>;
+			for(var d=0;d<=x;d++)
+				{
+    				document.write("<option>"+d+"</option>");
+				}
+			</script>
+		</select>
+	</div>
+
+	<div class="td left" style="width:50%;">
+	 <input type="button" id="delbtn" class="cbi-button" value="<%:Delete Indicated%>" onclick="deleteone(this)" />
+
+	</div>
+
+	<div class="td right" style="width:30%;">
+
+	 <input type="button" id="delabtn" class="cbi-button" value="<%:Delete All%>" onclick="deleteall(this)" />
+	</div>	
+
+	</div></div>
+	<div class="table" width="100%">
+	<div class="tr"><div class="td left" width="33%"></div><div class="td left"></div></div>
+	</div>
+
+
+<%+footer%>
+

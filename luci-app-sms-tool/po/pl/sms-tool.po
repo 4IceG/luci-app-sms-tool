@@ -1,0 +1,94 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: applications/luci-app-sms-tool/luasrc/controller/modem/sms.lua:8
+msgid "SMS Messages"
+msgstr "Wiadomości SMS"
+
+#: applications/luci-app-sms-tool/luasrc/controller/modem/sms.lua:19
+msgid "Received Messages"
+msgstr "Odebrane wiadomości"
+
+#: applications/luci-app-sms-tool/luasrc/controller/modem/sms.lua:20
+msgid "Send Messages"
+msgstr "Wysyłanie Wiadomości"
+
+#: applications/luci-app-sms-tool/luasrc/controller/modem/sms.lua:21
+msgid "USSD"
+msgstr "USSD"
+
+#: applications/luci-app-sms-tool/luasrc/controller/modem/sms.lua:21
+msgid "Configuration"
+msgstr "Ustawienia"
+
+#: applications/luci-app-sms-tool/luasrc/model/cbi/modem/smsconfig.lua:11
+msgid "Configuration sms-tool"
+msgstr "Konfiguracja sms-tool"
+
+#: applications/luci-app-sms-tool/luasrc/model/cbi/modem/smsconfig.lua:12
+msgid "Configuration panel for sms_tool and gui application."
+msgstr "Panel ustawień dla aplikacji sms_tool oraz dla nakładki graficznej."
+
+#: applications/luci-app-sms-tool/luasrc/model/cbi/modem/smsconfig.lua:17
+msgid "Device"
+msgstr "Urządzenie"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:81
+msgid "SMS Messages"
+msgstr "Wiadomości SMS"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:82
+msgid "Mini gui for handling messages via sms_tool."
+msgstr "Mała nakładka graficzna dla sms_tool do obsługi wiadomości sms."
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:85
+msgid "Received Messages"
+msgstr "Odebrane wiadomości"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:22
+msgid "SIM Card"
+msgstr "Karta SIM"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:87
+msgid "Messages store in"
+msgstr "Miejsce przechowywania wiadomości"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:88
+msgid "Messages (Inbox / Maximum)"
+msgstr "Wiadomości (Odebrane / Maksymalnie)"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:88
+msgid "Delete Indicated"
+msgstr "Usuń wskazaną"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:88
+msgid "Delete All"
+msgstr "Usuń wszystkie"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:88
+msgid "Delete message number "
+msgstr "Usunąć wiadomość o numerze "
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/readsms.html:88
+msgid "Delete all the messages?"
+msgstr "Usunąć wszystkie wiadomości?"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/sendsms.html:53
+msgid "Send to"
+msgstr "Wyślij do"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/sendsms.html:88
+msgid "Message text"
+msgstr "Treść wiadomości sms"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/sendsms.html:88
+msgid "Send Message"
+msgstr "Wyślij sms"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/ussd.html:15
+msgid "Code to send"
+msgstr "Kod do wysłania"
+
+#: applications/luci-app-sms-tool/luasrc/view/modem/ussd.html:23
+msgid "Send Code"
+msgstr "Wyślij kod"
