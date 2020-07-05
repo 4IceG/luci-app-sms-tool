@@ -24,4 +24,4 @@ opkg install luci-app-sms-tool_all.ipk
 
 - "Received Messages" window:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/sms1.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/sms1en.PNG)
