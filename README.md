@@ -5,6 +5,9 @@
 Luci-app-sms-tool is a mini gui for handling messages via sms_tool application/project https://eko.one.pl/?p=openwrt-sms_tool
 Works with mPCI-E and USB 3G/LTE modems.
 
+Works at now only read and delete sms.
+Other tabs are invisible ... not described ..
+
 # Installation
 ``` bash
 #Modem drivers are required for proper operation.
@@ -22,7 +25,3 @@ opkg install luci-app-sms-tool_all.ipk
 - "Received Messages" window:
 
 ![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/sms1.PNG)
-
-- "Send SMS" window:
-
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/sms2.PNG)
