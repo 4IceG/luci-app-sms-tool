@@ -1,4 +1,0 @@
-
-config sms_tool 'general'
-	option device '/dev/ttyUSB1'
-
