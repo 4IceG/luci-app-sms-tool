@@ -12,4 +12,13 @@ PKG_RELEASE:=beta
 
 include $(TOPDIR)/feeds/luci/luci.mk
 
+define Package/luci-app-sms-tool/postinst
+#!/bin/sh
+[ -n "$${IPKG_INSTROOT}" ] || {
+rm -rf /tmp/luci-indexcache
+rm -rf /tmp/luci-modulecache/
+}
+exit 0
+endef
+
 # call BuildPackage - OpenWrt buildroot signature
