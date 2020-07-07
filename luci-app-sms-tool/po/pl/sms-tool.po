@@ -1,4 +1,4 @@
-msgid ""
+﻿msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
 msgid "SMS Messages"
@@ -15,6 +15,24 @@ msgstr "USSD"
 
 msgid "Configuration"
 msgstr "Ustawienia"
+
+msgid "Sample codes"
+msgstr "Przykładowe kody"
+
+msgid "Sending USSD codes"
+msgstr "Wysyłanie kodów USSD"
+
+msgid "Reply"
+msgstr "Odpowiedź"
+
+msgid "You must enter a ussd code!"
+msgstr "Musisz podać kod do wysłania!"
+
+msgid "Delete indicated message?"
+msgstr "Usunąć wybraną wiadomość?"
+
+msgid "Delete all the messages?"
+msgstr "Usunąć wszystkie wiadomości?"
 
 msgid "Configuration sms-tool"
 msgstr "Konfiguracja sms-tool"
@@ -38,10 +56,16 @@ msgid "Messages (Inbox / Maximum)"
 msgstr "Wiadomości (Odebrane / Maksymalnie)"
 
 msgid "Delete Indicated"
-msgstr "Usuń wskazaną"
+msgstr "Usuń wybraną"
 
 msgid "Delete All"
 msgstr "Usuń wszystkie"
+
+msgid "USSD"
+msgstr "USSD"
+
+msgid "Mini gui for handling ussd codes via sms_tool."
+msgstr "Mała nakładka graficzna dla sms_tool do obsługi kodów ussd."
 
 msgid "Send to"
 msgstr "Wyślij do"

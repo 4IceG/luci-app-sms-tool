@@ -4,8 +4,6 @@
 	local sys = require "luci.sys"
 	local http = require "luci.http"
 	local dispatcher = require "luci.dispatcher"
-	local http = require "luci.http"
-	local sys = require "luci.sys"
 	local uci = require "luci.model.uci".cursor()
 
 	local devv = tostring(uci:get("sms_tool", "general", "device"))
@@ -45,7 +43,7 @@ min-width:100%;
 	{
 		var e = document.getElementById("smsnumber");
 		var smsindex = e.options[e.selectedIndex].value;
-	if (confirm("Delete message number " + smsindex + "?")) {
+	if (confirm("<%:Delete indicated message?%>")) {
 
 
 		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "delete_one")%>/' + smsindex, null,
@@ -62,7 +60,7 @@ min-width:100%;
 
 	function deleteall(btn)
 	{
-	if (confirm("Delete all the messages?")) {
+	if (confirm("<%:Delete all the messages?%>")) {
 
 		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "delete_all")%>/' , null,
 
