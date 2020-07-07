@@ -8,7 +8,7 @@ Luci-app-sms-tool is a mini gui for handling messages via sms_tool application/p
 Works with mPCI-E and USB 3G/LTE modems.
 
 Works at now only read/delete sms and USSD tab.
-Other tabs are invisible ... not described ..
+Send sms tab are invisible ... not yet described ..
 
 ## Installation
 ``` bash
@@ -25,10 +25,12 @@ opkg install luci-app-sms-tool_all.ipk
 ## Screenshots
 
 - "Received Messages" window:
+
 ![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/sms1en.PNG)
 
 
 - "USSD" window:
+
 ![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/ussdeng.PNG)
 
 
