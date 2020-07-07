@@ -1,5 +1,5 @@
 # Copyright 2020 IceG <eko.one.pl>
-# Licensed to the public under the Apache License 2.0.
+# Licensed to the GNU General Public License v3.0.
 
 include $(TOPDIR)/rules.mk
 
@@ -9,6 +9,7 @@ LUCI_PKGARCH:=all
 DEPENDS:=+sms-tool
 PKG_VERSION:=1.1
 PKG_RELEASE:=beta
+PKG_LICENSE:=GPLv3
 
 include $(TOPDIR)/feeds/luci/luci.mk
 
