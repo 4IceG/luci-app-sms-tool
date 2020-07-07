@@ -34,7 +34,7 @@ opkg install luci-app-sms-tool_all.ipk
 ![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/ussdeng.PNG)
 
 
-## Thanks
+## Thanks to
 - [luci-app-smstool](https://github.com/lzto/luci-app-smstool)
 - [sms_tool](https://eko.one.pl/?p=openwrt-sms_tool)
 - [koshev-msk](https://github.com/koshev-msk)
