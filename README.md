@@ -31,7 +31,7 @@ opkg install luci-app-sms-tool_all.ipk
 
 - "USSD" window:
 
-![](https://rhttps://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/ussdeng.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/ussdeng.PNG)
 
 
 ## Thanks to
