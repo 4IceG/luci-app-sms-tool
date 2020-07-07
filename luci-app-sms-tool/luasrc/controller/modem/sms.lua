@@ -8,7 +8,6 @@
 	local http = require "luci.http"
 	local dispatcher = require "luci.dispatcher"
 	local http = require "luci.http"
-	local sys = require "luci.sys"
 	local uci = require "luci.model.uci".cursor()
 
 module("luci.controller.modem.sms", package.seeall)
