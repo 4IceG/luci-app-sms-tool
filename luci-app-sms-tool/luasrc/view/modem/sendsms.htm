@@ -33,6 +33,11 @@ function count_replace(obj) {
 	document.getElementById("odp").innerHTML = "";
 }
 
+function codsp() {
+
+	document.getElementById("odp").innerHTML = "";
+}
+
 
 function copyFunction() {
   var x = document.getElementById("pl").value;
@@ -106,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 	<div class="table" width="100%">
 		<div class="tr">
 			<div class="td left" style="width:15%;"><%:Send to%>:</div>
-			<div class="td left" style="width:41%;"><input type="text" id="numer" required minlength="4" maxlength="11" size="11"></div>
+			<div class="td left" style="width:41%;"><input type="text" id="numer" onKeyUp="codsp()" required minlength="4" maxlength="11" size="11"></div>
 			<div class="td left" style="width:41%;"></div>
 		</div>
 		<div class="tr">
