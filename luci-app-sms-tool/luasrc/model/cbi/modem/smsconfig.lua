@@ -1,5 +1,5 @@
--- Copyright 2020 IceG <eko.one.pl>
--- Licensed to the public under the Apache License 2.0.
+-- Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
+-- Licensed to the GNU General Public License v3.0.
 
 require("nixio.fs")
 

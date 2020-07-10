@@ -1,11 +1,7 @@
-<%
-
-
--%>
-
 <%+header%>
+
 <h2><%:USSD%></h2>
-	<label><%:Mini gui for handling ussd codes via sms_tool.%></label>
+	<label><%:Web UI for handling ussd codes via sms_tool.%></label>
 	<p></p>
 	<h4><%:Sending USSD codes%></h4>
 
@@ -25,7 +21,7 @@
   				<option value="*101#">Stan konta w sieci T-Mobile</option>
  				</select>
 			</div>
-			<div class="td left" style="width:44%;"></div>
+			<div class="td left" style="width:41%;"></div>
 			</div>
 
 		<div class="tr">
@@ -70,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 		if ( s.length == 0 )
 		{
   			document.getElementById("odp").innerHTML = "";
-			alert("<%:You must enter a ussd code!%>");
+			alert("<%:Please enter a ussd code%>");
 			return false;
 		}
 

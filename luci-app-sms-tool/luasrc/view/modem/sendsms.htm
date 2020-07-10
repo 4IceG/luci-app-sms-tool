@@ -1,11 +1,4 @@
-<%
-
-
-
--%>
-
 <%+header%>
-
 
 <style>
 
@@ -21,29 +14,89 @@ textarea {
 
 </style>
 
+<script type="text/javascript">//<![CDATA[
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-    <script>
+function count_replace(obj) {
 
-            function countChar(val)
-            {
+    document.getElementById('counter').innerHTML = (160 - document.getElementById('smstxt').value.length);
 
-             var limit = 160;
+	 obj.value = obj.value.replace(/ą/g, 'a').replace(/Ą/g, 'A');
+        obj.value = obj.value.replace(/ć/g, 'c').replace(/Ć/g, 'C')
+        obj.value = obj.value.replace(/ę/g, 'e').replace(/Ę/g, 'E')
+        obj.value = obj.value.replace(/ł/g, 'l').replace(/Ł/g, 'L')
+        obj.value = obj.value.replace(/ń/g, 'n').replace(/Ń/g, 'N')
+        obj.value = obj.value.replace(/ó/g, 'o').replace(/Ó/g, 'O')
+        obj.value = obj.value.replace(/ś/g, 's').replace(/Ś/g, 'S')
+        obj.value = obj.value.replace(/ż/g, 'z').replace(/Ż/g, 'Z')
+        obj.value = obj.value.replace(/ź/g, 'z').replace(/Ź/g, 'Z');
+}
 
-            if ( val.length > limit )
-              {
-              $("#sms").val(val.substring(0, limit-1));
-              val.length = limit;
-              }
 
-              $("#count").html((limit)-(val.length));
-              }
+function copyFunction() {
+  var x = document.getElementById("pl").value;
+  document.getElementById("code").value = x;
+  document.getElementById("odp").innerHTML = "";
+}
 
-        </script>
+function postcmd(cmd) {
+    (new XHR()).post("<%=luci.dispatcher.build_url("admin", "modem", "sms", "run_sms")%>", {"scode":cmd}, function(x) {
+        console.log(x.response)
+        console.log(x)
+	 	var cut = x.response;
+		cut = cut.substr(0, 20);
+	if ( cut == "sms sent sucessfully" ) {
+        document.getElementById("odp").innerHTML = "<%:SMS sent sucessfully%>"};
+
+    });
+    return false;
+}
+
+document.addEventListener('DOMContentLoaded', function (ev) {var button = document.getElementById("sendsms");
+        button.addEventListener("click", function () {
+
+
+		var ph = document.getElementById("numer").value;
+		if ( ph.length < 2 || ph.length == 0 )
+		{
+  			document.getElementById("odp").innerHTML = "";
+			alert("<%:Please enter phone number%>");
+			return false;
+		}
+
+		ph = ph.trim();
+
+		if ( isNaN(ph) )
+		{
+			alert("<%:Please correct phone number%>");
+			return false;
+		}
+
+		var num = ph.concat("                    ");
+		num = num.substr(0, 20);
+
+		var tm = document.getElementById("smstxt").value;
+		if ( tm.length == 0 )
+		{
+			alert("<%:Please enter a message text%>");
+			return false;
+		}
+		num = num.concat(tm);
+        	postcmd(num);
+	 	       var delsms = document.getElementById("smstxt");
+		        var delnum = document.getElementById("numer");
+		          delsms.value = "";
+		          delnum.value = "";
+        	return true;
+        });
+    }, true);
+
+
+//]]></script>
+
 
 <h2><%:SMS Messages%></h2>
-	<label><%:Mini gui for handling messages via sms_tool.%></label>
+	<label><%:Web UI for handling messages via sms_tool.%></label>
 	<p></p>
 
 	<h4><%:Send Messages%></h4>
@@ -51,13 +104,18 @@ textarea {
 	<div class="table" width="100%">
 		<div class="tr">
 			<div class="td left" style="width:15%;"><%:Send to%>:</div>
-			<div class="td left" style="width:42%;"><input type="text" id="numer" required minlength="4" maxlength="9" size="11"></div>
-			<div class="td left" style="width:42%;"></div>
+			<div class="td left" style="width:41%;"><input type="text" id="numer" required minlength="4" maxlength="11" size="11"></div>
+			<div class="td left" style="width:41%;"></div>
 		</div>
 		<div class="tr">
 			<div class="td left" style="width:15%;"><%:Message text%>:</div>
-			<div class="td left" style="width:42%;"><textarea id="sms" onKeyUp="countChar(this.value)" required></textarea><div id="count">160</div></div>
-			<div class="td left" style="width:42%;"></div>
+			<div class="td left" style="width:41%;"><textarea id="smstxt" onKeyUp="count_replace(this)" required></textarea><div id="counter">160</div></div>
+			<div class="td left" style="width:41%;"></div>
+		</div>
+
+		<div class="tr">
+			<div class="td left" width="15%"><%:Status%>:</div><div class="td left" id="odp"></div>
+
 		</div>
 
 	</div>

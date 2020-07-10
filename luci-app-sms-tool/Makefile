@@ -1,14 +1,14 @@
-# Copyright 2020 IceG <eko.one.pl>
+# Copyright 2020 Rafał Wabik - IceG - From eko.one.pl forum
 # Licensed to the GNU General Public License v3.0.
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-sms-tool
-LUCI_TITLE:=Mini gui for handling messages via sms_tool.
+LUCI_TITLE:=LuCI Support for sms_tool
 LUCI_PKGARCH:=all
-DEPENDS:=+sms-tool
-PKG_VERSION:=1.1
-PKG_RELEASE:=beta
+LUCI_DEPENDS:=+sms-tool
+PKG_VERSION:=1.2
+PKG_RELEASE:=FINAL
 PKG_LICENSE:=GPLv3
 
 include $(TOPDIR)/feeds/luci/luci.mk

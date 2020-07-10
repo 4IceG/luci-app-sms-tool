@@ -8,7 +8,7 @@
 
 	local devv = tostring(uci:get("sms_tool", "general", "device"))
 
-	local sms = luci.sys.exec("sms_tool -d " .. devv .. " recv")
+	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%d-%m-%Y %H:%M' -j recv"))
 
 	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
 	local all = string.sub (statusb, -3)
@@ -26,24 +26,69 @@
 
 <style>
 
-textarea {
-
-width:100%;
-height:180px;
-max-width:100%;
-min-width:100%;
+table {
+  border-collapse: collapse;
+  width: 100%;
 
 }
+
+th, td {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  padding: 10px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
 
 </style>
 
 <script type="text/javascript">//<![CDATA[
 
+
+	window.onload = function readSMS() {
+	
+  	var table = document.getElementById("smsTable");
+
+	select = document.getElementById('smsnumber');
+
+	var useDiv = document.getElementById("usse");
+  	useDiv.innerHTML = <%=use%> + " / " + <%=all%>;
+
+			
+			var obj = <%=sms%>;
+			var data = JSON.stringify(obj);
+			var json = JSON.parse(data);
+
+			var x = <%=all%>;
+			for(var d=0;d<=x;d++)
+				{
+
+  					var row = table.insertRow(-1);
+  					var cell1 = row.insertCell(0);
+  					var cell2 = row.insertCell(0);
+  					var cell3 = row.insertCell(0);
+  					var cell4 = row.insertCell(0);
+    					cell1.innerHTML = json.msg[d].content;
+  					cell2.innerHTML = json.msg[d].timestamp;
+ 				 	cell3.innerHTML = json.msg[d].sender;
+ 					cell4.innerHTML = json.msg[d].index;
+    			   		var opt = document.createElement('option');
+    					opt.value = opt.text = json.msg[d].index;
+    					opt.innerHTML = json.msg[d].index;
+    					select.appendChild(opt);
+				}
+	
+	}
+
+
+
+
 	function deleteone(btn)
 	{
 		var e = document.getElementById("smsnumber");
 		var smsindex = e.options[e.selectedIndex].value;
-	if (confirm("<%:Delete indicated message?%>")) {
+	if (confirm("<%:Delete selected message?%>")) {
 
 
 		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "delete_one")%>/' + smsindex, null,
@@ -78,37 +123,34 @@ min-width:100%;
 
 
 <h2><%:SMS Messages%></h2>
-	<label><%:Mini gui for handling messages via sms_tool.%></label>
+	<label><%:Web UI for handling messages via sms_tool.%></label>
 	<p></p>
 
 	<h4><%:Received Messages%></h4>
 	<div class="table" width="100%">
-	<div class="tr"><div class="td left" width="33%"><%:Messages store in%>:</div><div class="td left"><%=location:pcdata()%></div></div>
-	<div class="tr"><div class="td left" width="33%"><%:Messages (Inbox / Maximum)%>:</div><div class="td left" ><%=use:pcdata()%> / <%=all:pcdata()%></div></div>
-	</div>
-	<div id="content_sms">
-	<textarea readonly placeholder="<%=sms:cmatch("\n")+2%>"><%=sms:pcdata()%></textarea>
+	<div class="tr"><div class="td left" width="33%"><%:Messages store in%>:</div><div class="td left"><%=location%></div></div>
+	<div class="tr"><div class="td left" width="33%"><%:Messages (Inbox / Maximum)%>:</div><div class="td left" id="usse"></div></div>
 	</div>
 
+	<table id="smsTable" width="100%" class="table">
+  	<tr class="tr cbi-rowstyle-2">
+    	<td class="td left" width="5%"><%:MSG%></td>
+    	<td class="td left" width="15%"><%:From%></td>
+    	<td class="td left" width="20%"><%:Received%></td>
+    	<td class="td center" width="60%"><%:Message%></td>
+ 	</tr>
+	</table>
 
-
-	<div class="table" width="100%">
-	<div class="tr">
+	<div class="table" width="100%" >
+	<div class="tr cbi-rowstyle-1">
 	<div class="td left" style="width:10%;">
 
 		<select id="smsnumber">
-			<script language="javascript" type="text/javascript"> 
-			var x = <%=all:pcdata()%>;
-			for(var d=0;d<=x;d++)
-				{
-    				document.write("<option>"+d+"</option>");
-				}
-			</script>
 		</select>
 	</div>
 
 	<div class="td left" style="width:50%;">
-	 <input type="button" id="delbtn" class="cbi-button" value="<%:Delete Indicated%>" onclick="deleteone(this)" />
+	 <input type="button" id="delbtn" class="cbi-button" value="<%:Delete Selected%>" onclick="deleteone(this)" />
 
 	</div>
 
@@ -118,9 +160,7 @@ min-width:100%;
 	</div>	
 
 	</div></div>
-	<div class="table" width="100%">
-	<div class="tr"><div class="td left" width="33%"></div><div class="td left"></div></div>
-	</div>
+
 
 
 <%+footer%>
