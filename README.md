@@ -5,10 +5,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/IceG2020/luci-app-sms-tool?style=flat-square)
 
 Luci-app-sms-tool is a mini gui for handling messages via sms_tool application/project https://eko.one.pl/?p=openwrt-sms_tool
-Works with mPCI-E and USB 3G/LTE modems.
-
-Works at now only read/delete sms and USSD tab.
-Send sms tab are invisible ... not yet described ..
+Works with mPCI-E and USB 3G/LTE modems. Don't work with HiLink modems.
 
 ## Installation
 ``` bash
@@ -26,12 +23,19 @@ opkg install luci-app-sms-tool_all.ipk
 
 - "Received Messages" window:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/sms1en.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/sms1Fpl.PNG)
 
+- "Sending Message" window:
+
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/sms2Fpl.PNG)
 
 - "USSD" window:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/ussdeng.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/sms3Fpl.PNG)
+
+- "Configuration" window:
+
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screens/sms4Fpl.PNG)
 
 
 ## Thanks to
