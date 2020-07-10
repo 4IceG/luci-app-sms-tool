@@ -5,7 +5,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/IceG2020/luci-app-sms-tool?style=flat-square)
 
 Luci-app-sms-tool is a mini gui for handling messages via sms_tool application/project https://eko.one.pl/?p=openwrt-sms_tool
-Works with mPCI-E and USB 3G/LTE modems. Don't work with HiLink modems.
+Works with mPCI-E and USB 3G/LTE modems. Don't work with HiLink/RNDIS modems.
 
 ## Installation
 ``` bash
