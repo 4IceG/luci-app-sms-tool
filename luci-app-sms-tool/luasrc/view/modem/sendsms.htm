@@ -30,6 +30,7 @@ function count_replace(obj) {
         obj.value = obj.value.replace(/ś/g, 's').replace(/Ś/g, 'S')
         obj.value = obj.value.replace(/ż/g, 'z').replace(/Ż/g, 'Z')
         obj.value = obj.value.replace(/ź/g, 'z').replace(/Ź/g, 'Z');
+	document.getElementById("odp").innerHTML = "";
 }
 
 
@@ -46,7 +47,7 @@ function postcmd(cmd) {
 	 	var cut = x.response;
 		cut = cut.substr(0, 20);
 	if ( cut == "sms sent sucessfully" ) {
-        	alert("<%:SMS sent sucessfully%>")};
+        	document.getElementById("odp").innerHTML = "<%:SMS sent sucessfully%>"};
 
     });
     return false;
@@ -112,6 +113,11 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 			<div class="td left" style="width:15%;"><%:Message text%>:</div>
 			<div class="td left" style="width:41%;"><textarea id="smstxt" onKeyUp="count_replace(this)" required></textarea><div id="counter">160</div></div>
 			<div class="td left" style="width:41%;"></div>
+		</div>
+			
+		<div class="tr">
+			<div class="td left" width="15%"><%:Status%>:</div><div class="td left" id="odp"></div>
+
 		</div>
 
 	</div>
