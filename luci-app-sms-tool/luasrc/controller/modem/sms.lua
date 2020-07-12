@@ -14,6 +14,7 @@
 module("luci.controller.modem.sms", package.seeall)
 
 function index()
+	entry({"admin", "modem"}, firstchild(), "Modem", 30).dependent=false
 	entry({"admin", "modem", "sms"}, alias("admin", "modem", "sms", "readsms"), translate("SMS Messages"), 20).acl_depends={ "luci-app-sms-tool" }
 	entry({"admin", "modem", "sms", "readsms"},template("modem/readsms"),translate("Received Messages"), 10)
  	entry({"admin", "modem", "sms", "sendsms"},template("modem/sendsms"),translate("Send Messages"), 20)
