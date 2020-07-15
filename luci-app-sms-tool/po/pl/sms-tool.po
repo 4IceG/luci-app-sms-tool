@@ -149,7 +149,7 @@ msgid "Receive and display the message without decoding it as a PDU."
 msgstr "Odebrana wiadomość wyświetlana jest bez dekodowania jej jako PDU."
 
 msgid "Explanation of number and prefix"
-msgstr "Wyjaśnienie dot. numeru i prefiksu"
+msgstr "Informacja dot. numeru i prefiksu"
 
 msgid "Display a window to remind you of the correct phone number and prefix."
 msgstr "Wyświetlaj okno przypominające o poprawności numeru telefonu i prefiksie."
