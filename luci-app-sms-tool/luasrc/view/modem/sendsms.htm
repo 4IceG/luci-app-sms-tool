@@ -1,3 +1,13 @@
+<%
+	local util = require "luci.util"
+	local sys = require "luci.sys"
+
+	local pon = tostring(uci:get("sms_tool", "general", "prefix"))
+	local pnumber = tostring(uci:get("sms_tool", "general", "pnumber"))
+	local info = tostring(uci:get("sms_tool", "general", "information"))
+
+-%>
+
 <%+header%>
 
 <style>
@@ -17,6 +27,27 @@ textarea {
 <script type="text/javascript">//<![CDATA[
 
 
+window.onload = function prefiksSMS() {
+
+		var phk = document.getElementById("numer").value;
+		var on = <%=pon%>;
+
+		var msg = <%=info%>;
+
+		var pfixnum = document.getElementById("numer");
+		if ( on == "1" ) {
+		var phn2 = <%=pnumber%>;
+		pfixnum.value = phn2;
+		}
+
+		if ( msg == "1" ) {
+		alert("<%:The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as.. short and should not be preceded by a country prefix.%>");
+		}
+
+}
+
+
+
 function count_replace(obj) {
 
     document.getElementById('counter').innerHTML = (160 - document.getElementById('smstxt').value.length);
@@ -31,19 +62,16 @@ function count_replace(obj) {
         obj.value = obj.value.replace(/ż/g, 'z').replace(/Ż/g, 'Z')
         obj.value = obj.value.replace(/ź/g, 'z').replace(/Ź/g, 'Z');
 	document.getElementById("odp").innerHTML = "";
+
 }
 
 function codsp() {
 
-	document.getElementById("odp").innerHTML = "";
+		document.getElementById("odp").innerHTML = "";
+
 }
 
 
-function copyFunction() {
-  var x = document.getElementById("pl").value;
-  document.getElementById("code").value = x;
-  document.getElementById("odp").innerHTML = "";
-}
 
 function postcmd(cmd) {
     (new XHR()).post("<%=luci.dispatcher.build_url("admin", "modem", "sms", "run_sms")%>", {"scode":cmd}, function(x) {
@@ -57,6 +85,7 @@ function postcmd(cmd) {
     });
     return false;
 }
+
 
 document.addEventListener('DOMContentLoaded', function (ev) {var button = document.getElementById("sendsms");
         button.addEventListener("click", function () {
@@ -111,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 	<div class="table" width="100%">
 		<div class="tr">
 			<div class="td left" style="width:15%;"><%:Send to%>:</div>
-			<div class="td left" style="width:41%;"><input type="text" id="numer" onKeyUp="codsp()" required minlength="4" maxlength="11" size="11"></div>
+			<div class="td left" style="width:41%;"><input type="text" id="numer" onKeyUp="codsp()" placeholder="<%:PHONE_NUMBER%>" required minlength="3" maxlength="24" size="11"></div>
 			<div class="td left" style="width:41%;"></div>
 		</div>
 		<div class="tr">

@@ -24,24 +24,49 @@ function index()
 	entry({"admin", "modem", "sms", "delete_all"}, call("delete_all_sms"), nil).leaf = true
 	entry({"admin", "modem", "sms", "run_ussd"}, call("ussd"), nil).leaf = true
 	entry({"admin", "modem", "sms", "run_sms"}, call("sms"), nil).leaf = true
+	entry({"admin", "modem", "sms", "readsim"}, call("slots"), nil).leaf = true
 end
 
 
 function delete_sms(smsindex)
-	local devv = tostring(uci:get("sms_tool", "general", "device"))
+	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 	os.execute("sms_tool -d " .. devv .. " delete " .. smsindex .. "")
 end
 
 function delete_all_sms()
-	local devv = tostring(uci:get("sms_tool", "general", "device"))
+	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 	os.execute("sms_tool -d " .. devv .. " delete all")
 end
 
+function get_ussd()
+    local cursor = luci.model.uci.cursor()
+    if cursor:get("sms_tool", "general", "ussd") == "1" then
+        return " -R"
+    else
+        return ""
+    end
+end
+
+
+function get_pdu()
+    local cursor = luci.model.uci.cursor()
+    if cursor:get("sms_tool", "general", "pdu") == "1" then
+        return " -r"
+    else
+        return ""
+    end
+end
+
+
 function ussd()
-    local devv = tostring(uci:get("sms_tool", "general", "device"))
+    local devv = tostring(uci:get("sms_tool", "general", "ussdport"))
+
+	local ussd = get_ussd()
+	local pdu = get_pdu()
+
     local ussd_code = http.formvalue("code")
     if ussd_code then
-	    local odpall = io.popen("sms_tool -d " .. devv .. " ussd " .. tostring(ussd_code) .." 2>&1")
+	    local odpall = io.popen("sms_tool -d " .. devv .. ussd .. pdu .. " ussd " .. ussd_code .." 2>&1")
 	    local odp =  odpall:read("*a")
 	    odpall:close()
         http.write(tostring(odp))
@@ -50,8 +75,9 @@ function ussd()
     end
 end
 
+
 function sms()
-    local devv = tostring(uci:get("sms_tool", "general", "device"))
+    local devv = tostring(uci:get("sms_tool", "general", "sendport"))
     local sms_code = http.formvalue("scode")
 
     nr = (string.sub(sms_code, 1, 20))
@@ -67,4 +93,19 @@ function sms()
         http.write_json(http.formvalue())
     end
 
+end
+
+function slots()
+	local sim = { }
+	local devv = tostring(uci:get("sms_tool", "general", "readport"))
+
+	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
+
+	local usex = string.sub (statusb, 23, 27)
+	local max = string.sub (statusb, -3)
+
+	sim["use"] = string.match(usex, '%d+')
+	sim["all"] = string.match(max, '%d+')
+	luci.http.prepare_content("application/json")
+	luci.http.write_json(sim)
 end

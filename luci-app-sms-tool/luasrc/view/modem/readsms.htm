@@ -6,14 +6,13 @@
 	local dispatcher = require "luci.dispatcher"
 	local uci = require "luci.model.uci".cursor()
 
-	local devv = tostring(uci:get("sms_tool", "general", "device"))
+	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 
 	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%d-%m-%Y %H:%M' -j recv"))
 
 	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
 	local all = string.sub (statusb, -3)
-	local usex = string.sub (statusb, 23, 27)
-	local use = string.match(usex, '%d+')
+
 	local location = ""
 	local l = string.sub (statusb, 15, 16)
 	if l == "SM" then
@@ -37,6 +36,7 @@ th, td {
   border-bottom: 1px solid #ddd;
   font-size: 12px;
   padding: 10px;
+
 }
 
 tr:nth-child(even) {background-color: #f2f2f2;}
@@ -47,13 +47,16 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 	window.onload = function readSMS() {
-	
-  	var table = document.getElementById("smsTable");
 
-	select = document.getElementById('smsnumber');
+			XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "readsim")%>', null,
+			function(x, sim)
+			{
+			document.getElementById('usse').innerHTML=sim.use  + " / " + sim.all;
 
-	var useDiv = document.getElementById("usse");
-  	useDiv.innerHTML = <%=use%> + " / " + <%=all%>;
+			}
+			);
+
+			var table = document.getElementById("smsTable");
 
 			
 			var obj = <%=sms%>;
@@ -69,49 +72,84 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   					var cell2 = row.insertCell(0);
   					var cell3 = row.insertCell(0);
   					var cell4 = row.insertCell(0);
-    					cell1.innerHTML = json.msg[d].content;
-  					cell2.innerHTML = json.msg[d].timestamp;
- 				 	cell3.innerHTML = json.msg[d].sender;
- 					cell4.innerHTML = json.msg[d].index;
-    			   		var opt = document.createElement('option');
-    					opt.value = opt.text = json.msg[d].index;
-    					opt.innerHTML = json.msg[d].index;
-    					select.appendChild(opt);
+
+ 				 	cell4.innerHTML = json.msg[d].sender;
+  					cell3.innerHTML = json.msg[d].timestamp;
+    					cell2.innerHTML = json.msg[d].content;
+					cell1.innerHTML = "<img class='cbi-button' id="+"btn"+json.msg[d].index+" src='<%=resource%>/icons/delsms.png' onclick='delete_me()'>"
 				}
 	
 	}
 
 
+function refreshSMS() {
+
+window.location.reload();
+
+}
 
 
-	function deleteone(btn)
-	{
-		var e = document.getElementById("smsnumber");
-		var smsindex = e.options[e.selectedIndex].value;
+function delete_me()
+{
+
+	var str = event.srcElement.id;
+	var n = str.length;
+
+	var smsindex = str.substr(3, n);
+
 	if (confirm("<%:Delete selected message?%>")) {
+
+
+			var td = event.target.parentNode;
+      			var tr = td.parentNode; // the row to be removed
+      			tr.parentNode.removeChild(tr);
+
+
 
 
 		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "delete_one")%>/' + smsindex, null,
 
 			function()
 			{
-			window.location.reload();
+			var totalRowCount = 0;
+        		var rowCount = -2;
+       		var table = document.getElementById("smsTable");
+        		var rows = table.getElementsByTagName("tr")
+        		for (var i = 0; i < rows.length; i++) {
+            		totalRowCount++;
+            		if (rows[i].getElementsByTagName("td").length > 0) {
+                	rowCount++;
+            		}
+        		}
+        		var del = "";
+        		del += rowCount;
+        		document.getElementById('usse').innerHTML = del  + " / " + <%=all%>;
 			}
+
+
 		);
 
 		return false;
 		}
-	}
+}
 
 	function deleteall(btn)
 	{
+
 	if (confirm("<%:Delete all the messages?%>")) {
+
+
+		var rowCount = smsTable.rows.length;
+		document.getElementById('usse').innerHTML = "0"  + " / " + <%=all%>;
+		for (var i = rowCount - 1; i > 0; i--) {
+            		smsTable.deleteRow(i);}
+
 
 		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "delete_all")%>/' , null,
 
 			function()
 			{
-			window.location.reload();
+			document.getElementById('usse').innerHTML = "0"  + " / " + <%=all%>;
 			}
 		);
 
@@ -134,32 +172,25 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 	<table id="smsTable" width="100%" class="table">
   	<tr class="tr cbi-rowstyle-2">
-    	<td class="td left" width="5%"><%:MSG%></td>
-    	<td class="td left" width="15%"><%:From%></td>
-    	<td class="td left" width="20%"><%:Received%></td>
-    	<td class="td center" width="60%"><%:Message%></td>
+
+    	<td class="td left" width="15%"><strong><%:From%></strong></td>
+    	<td class="td left" width="15%"><strong><%:Received%></strong></td>
+    	<td class="td center" width="60%"><strong><%:Message%></strong></td>
+    	<td class="td center" width="10%"></td>
  	</tr>
 	</table>
 
 	<div class="table" width="100%" >
 	<div class="tr cbi-rowstyle-1">
-	<div class="td left" style="width:10%;">
-
-		<select id="smsnumber">
-		</select>
 	</div>
 
-	<div class="td left" style="width:50%;">
-	 <input type="button" id="delbtn" class="cbi-button" value="<%:Delete Selected%>" onclick="deleteone(this)" />
+
+	<div class="td right" style="width:100%;">
+	 <input type="button" id="delbtn" class="cbi-button" value="<%:Refresh SMS%>" onclick="refreshSMS()" />&nbsp;&nbsp;&nbsp;<input type="button" id="delabtn" class="cbi-button" value="<%:Delete All%>" onclick="deleteall(this)" />
 
 	</div>
 
-	<div class="td right" style="width:30%;">
-
-	 <input type="button" id="delabtn" class="cbi-button" value="<%:Delete All%>" onclick="deleteall(this)" />
-	</div>	
-
-	</div></div>
+	</div>
 
 
 

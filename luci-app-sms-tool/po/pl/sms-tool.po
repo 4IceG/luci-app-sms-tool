@@ -105,3 +105,57 @@ msgstr "Kod do wysłania"
 
 msgid "Send Code"
 msgstr "Wyślij kod"
+
+msgid "SMS Settings"
+msgstr "Ustawienia dla Wiadomości SMS"
+
+msgid "USSD Codes Settings"
+msgstr "Ustawienia dla kodów USSD"
+
+msgid "SMS Reading Port"
+msgstr "Port do odczytu SMS"
+
+msgid "SMS Sending Port"
+msgstr "Port do wysyłania SMS"
+
+msgid "USSD Sending Port"
+msgstr "Port do wysyłania kodów USSD"
+
+msgid "Add Prefix to Phone Number"
+msgstr "Dodaj prefiks do numeru telefonu"
+
+msgid "Automatically add prefix to the phone number field."
+msgstr "Automatycznie uzupełnij pole numeru telefonu o prefiks."
+
+msgid "Prefix Number"
+msgstr "Numer prefiks"
+
+msgid "PHONE_NUMBER"
+msgstr "48NumerTelefonu"
+
+msgid "Refresh SMS"
+msgstr "Odśwież wiadomości"
+
+msgid "Sending USSD Code in plain text"
+msgstr "Wysyłaj kod USSD jawnym tekstem"
+
+msgid "Receive message without PDU decoding"
+msgstr "Odbierz wiadomość bez dekodowania jej jako PDU"
+
+msgid "Send the USSD code in plain text. Command is not being coded to the PDU."
+msgstr "Wysyła kod USSD jawnym tekstem. Polecenie nie jest dekodowane na PDU."
+
+msgid "Receive and display the message without decoding it as a PDU."
+msgstr "Odebrana wiadomość wyświetlana jest bez dekodowania jej jako PDU."
+
+msgid "Explanation of number and prefix"
+msgstr "Wyjaśnienie dot. numeru i prefiksu"
+
+msgid "Display a window to remind you of the correct phone number and prefix."
+msgstr "Wyświetlaj okno przypominające o poprawności numeru telefonu i prefiksie."
+
+msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."
+msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku '+'). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako 'krótki' i nie należy go poprzedzać prefiksem kraju."
+
+msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as.. short and should not be preceded by a country prefix."
+msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku +). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako.. krótki i nie należy go poprzedzać prefiksem kraju."

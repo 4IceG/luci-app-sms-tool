@@ -1,0 +1,11 @@
+
+config sms_tool 'general'
+	option sendport '/dev/ttyUSB1'
+	option ussdport '/dev/ttyUSB1'
+	option readport '/dev/ttyUSB1'
+	option pnumber '48'
+	option ussd '0'
+	option pdu '0'
+	option prefix '1'
+	option information '1'
+
