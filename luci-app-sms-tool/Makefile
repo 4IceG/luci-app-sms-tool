@@ -10,10 +10,9 @@ LUCI_DEPENDS:=+sms-tool
 PKG_VERSION:=1.3
 PKG_LICENSE:=GPLv3
 
-include $(TOPDIR)/feeds/luci/luci.mk
-
 define Package/luci-app-sms-tool/postinst
 #!/bin/sh
+chmod 775 /etc/config/sms_tool
 rm -rf /tmp/luci-indexcache
 rm -rf /tmp/luci-modulecache/
 exit 0
@@ -25,6 +24,8 @@ help
 	$(LUCI_TITLE)
 	Version: $(PKG_VERSION)-$(PKG_RELEASE)
 endef
+
+include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
 
