@@ -41,11 +41,54 @@ window.onload = function prefiksSMS() {
 		}
 
 		if ( msg == "1" ) {
-		alert("<%:The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as short and should not be preceded by a country prefix.%>");
+		alert("<%:The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as.. short and should not be preceded by a country prefix.%>");
 		}
+
+
+
+XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "user_phonebook")%>', null,
+			function(x, json)
+			{
+				select = document.getElementById('pb');
+				var opt = document.createElement('option');
+				opt.text = phn2;
+				opt.value = phn2;
+    				opt.innerHTML = ">";
+    				select.appendChild(opt);
+    			    	
+				var countpb = Object.keys(json).length;
+
+
+					for(var d=0;d<=countpb;d++)
+						{
+
+							var opt = document.createElement('option');
+							var s = json[d].phb;
+							var fields = s.split(/;/);
+							var name = fields[0];
+							var number = fields[1];
+							opt.text = name;
+							opt.value = number.trim();
+    							opt.innerHTML = name;
+    							select.appendChild(opt);
+						}
+
+			}
+			);
+
+
+
 
 }
 
+
+function copyFunction2() {
+
+  	var x = document.getElementById("pb").value;
+       document.getElementById("numer").value = x;
+
+
+}
 
 
 function count_replace(obj) {
@@ -134,10 +177,22 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 <h2><%:SMS Messages%></h2>
 	<label><%:Web UI for handling messages via sms_tool.%></label>
 	<p></p>
-
+	<div class="label" style="float: right; text-align: center;">Forum eko.one.pl</div>
 	<h4><%:Send Messages%></h4>
 
 	<div class="table" width="100%">
+
+		<div class="tr">
+			<div class="td left" style="width:15%;"><%:User Phonebook%>:</div>
+			<div class="td left" style="width:41%;">
+
+				<select name="ussd" id="pb" onchange="copyFunction2()">
+
+ 				</select>
+</div>
+			<div class="td left" style="width:41%;"></div>
+		</div>
+
 		<div class="tr">
 			<div class="td left" style="width:15%;"><%:Send to%>:</div>
 			<div class="td left" style="width:41%;"><input type="text" id="numer" onKeyUp="codsp()" placeholder="<%:PHONE_NUMBER%>" required minlength="3" maxlength="24" size="11"></div>

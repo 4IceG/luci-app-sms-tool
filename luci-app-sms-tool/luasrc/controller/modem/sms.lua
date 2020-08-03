@@ -25,6 +25,8 @@ function index()
 	entry({"admin", "modem", "sms", "run_ussd"}, call("ussd"), nil).leaf = true
 	entry({"admin", "modem", "sms", "run_sms"}, call("sms"), nil).leaf = true
 	entry({"admin", "modem", "sms", "readsim"}, call("slots"), nil).leaf = true
+	entry({"admin", "modem", "sms", "user_ussd"}, call("userussd"), nil).leaf = true
+	entry({"admin", "modem", "sms", "user_phonebook"}, call("userphb"), nil).leaf = true
 end
 
 
@@ -109,3 +111,59 @@ function slots()
 	luci.http.prepare_content("application/json")
 	luci.http.write_json(sim)
 end
+
+
+
+function uussd(rv)
+	local c = nixio.fs.access("/etc/config/ussd.user") and
+		io.popen("cat /etc/config/ussd.user")
+
+	if c then
+		for l in c:lines() do
+			local i = l
+			if i then
+				rv[#rv + 1] = {
+					usd = i
+				}
+			end
+		end
+		c:close()
+	end
+end
+
+
+
+function userussd()
+	local usd = { }
+	uussd(usd)
+	luci.http.prepare_content("application/json")
+	luci.http.write_json(usd)
+end
+
+
+function uphb(rv)
+	local c = nixio.fs.access("/etc/config/phonebook.user") and
+		io.popen("cat /etc/config/phonebook.user")
+
+	if c then
+		for l in c:lines() do
+			local i = l
+			if i then
+				rv[#rv + 1] = {
+					phb = i
+				}
+			end
+		end
+		c:close()
+	end
+end
+
+
+
+function userphb()
+	local phb = { }
+	uphb(phb)
+	luci.http.prepare_content("application/json")
+	luci.http.write_json(phb)
+end
+

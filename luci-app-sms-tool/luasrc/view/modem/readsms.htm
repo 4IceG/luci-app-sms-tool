@@ -8,7 +8,10 @@
 
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 
-	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%d-%m-%Y %H:%M' -j recv"))
+	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv"))
+
+	local smscuta = string.sub (sms, 8)
+	local smscut = smscuta:sub(1, #smscuta - 2)
 
 	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
 	local all = string.sub (statusb, -3)
@@ -56,11 +59,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			}
 			);
 
-			var table = document.getElementById("smsTable");
 
-			
-			var obj = <%=sms%>;
-			var data = JSON.stringify(obj);
+			var array = <%=smscut%>;
+
+			var sortedData = array .sort((function (a, b) { return new Date(b.timestamp) - new Date(a.timestamp) }));
+
+			var table = document.getElementById("smsTable");
+		
+			var data = JSON.stringify(sortedData);
+
 			var json = JSON.parse(data);
 
 			var x = <%=all%>;
@@ -73,10 +80,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   					var cell3 = row.insertCell(0);
   					var cell4 = row.insertCell(0);
 
- 				 	cell4.innerHTML = json.msg[d].sender;
-  					cell3.innerHTML = json.msg[d].timestamp;
-    					cell2.innerHTML = json.msg[d].content;
-					cell1.innerHTML = "<img class='cbi-button' id="+"btn"+json.msg[d].index+" src='<%=resource%>/icons/delsms.png' onclick='delete_me()'>"
+ 				 	cell4.innerHTML = json[d].sender;
+  					cell3.innerHTML = json[d].timestamp;
+    				cell2.innerHTML = json[d].content;
+					cell1.innerHTML = "<img class='cbi-button' id="+"btn"+json[d].index+" src='<%=resource%>/icons/delsms.png' onclick='delete_me()'>"
 				}
 	
 	}
@@ -101,7 +108,7 @@ function delete_me()
 
 
 			var td = event.target.parentNode;
-      			var tr = td.parentNode; // the row to be removed
+      			var tr = td.parentNode;
       			tr.parentNode.removeChild(tr);
 
 
@@ -163,7 +170,7 @@ function delete_me()
 <h2><%:SMS Messages%></h2>
 	<label><%:Web UI for handling messages via sms_tool.%></label>
 	<p></p>
-
+	<div class="label" style="float: right; text-align: center;">Forum eko.one.pl</div>
 	<h4><%:Received Messages%></h4>
 	<div class="table" width="100%">
 	<div class="tr"><div class="td left" width="33%"><%:Messages store in%>:</div><div class="td left"><%=location%></div></div>
@@ -181,18 +188,14 @@ function delete_me()
 	</table>
 
 	<div class="table" width="100%" >
-	<div class="tr cbi-rowstyle-1">
-	</div>
-
 
 	<div class="td right" style="width:100%;">
-	 <input type="button" id="delbtn" class="cbi-button" value="<%:Refresh SMS%>" onclick="refreshSMS()" />&nbsp;&nbsp;&nbsp;<input type="button" id="delabtn" class="cbi-button" value="<%:Delete All%>" onclick="deleteall(this)" />
+
+	<input type="button" id="delbtn" class="cbi-button" value="<%:Refresh SMS%>" onclick="refreshSMS()" />&nbsp;&nbsp;&nbsp;<input type="button" id="delabtn" class="cbi-button" value="<%:Delete All%>" onclick="deleteall(this)" />
 
 	</div>
 
 	</div>
-
 
 
 <%+footer%>
-

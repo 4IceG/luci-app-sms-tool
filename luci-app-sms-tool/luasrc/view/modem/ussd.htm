@@ -1,8 +1,22 @@
+<%
+	local util = require "luci.util"
+	local fs = require "nixio.fs"
+	local sys = require "luci.sys"
+	local http = require "luci.http"
+	local dispatcher = require "luci.dispatcher"
+	local uci = require "luci.model.uci".cursor()
+
+-%>
+
+
 <%+header%>
 
 <h2><%:USSD%></h2>
 	<label><%:Web UI for handling ussd codes via sms_tool.%></label>
 	<p></p>
+
+	<div class="label" style="float: right; text-align: center;">Forum eko.one.pl</div>
+
 	<h4><%:Sending USSD codes%></h4>
 
 
@@ -10,15 +24,11 @@
 
 
 		<div class="tr">
-			<div class="td left" width="15%"><%:Sample codes%>:</div>
+			<div class="td left" width="15%"><%:User USSD Codes%>:</div>
 
 			<div class="td left" style="width:41%;">
 				<select name="ussd" id="pl" onchange="copyFunction()">
-  				<option value="*100#">Stan konta w sieci Plus</option>
-  				<option value="*101#">Stan konta w sieci Play</option>
-  				<option value="*136#">Stan pakietu internetowego w Premium Mobile</option>
-  				<option value="*124*#">Stan konta w sieci Orange</option>
-  				<option value="*101#">Stan konta w sieci T-Mobile</option>
+
  				</select>
 			</div>
 			<div class="td left" style="width:41%;"></div>
@@ -39,9 +49,42 @@
 		<div class="tr cbi-rowstyle-2">
 		<div class="td center"><input type="button" id="sendussd" class="cbi-button" value="<%:Send Code%>" /></div>
 		</div>
+
 	</div>
 
 <script type="text/javascript">//<![CDATA[
+
+window.onload = function readUSER() {
+
+
+			XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "user_ussd")%>', null,
+			function(x, json)
+			{
+				select = document.getElementById('pl');
+
+				var count = Object.keys(json).length;
+
+
+					for(var d=0;d<=count;d++)
+						{
+    			    				var opt = document.createElement('option');
+
+							var s = json[d].usd;
+							var fields = s.split(/;/);
+							var name = fields[0];
+							var code = fields[1];
+							opt.text = name;
+							opt.value = code.trim();
+    							opt.innerHTML = name;
+    							select.appendChild(opt);
+						}
+
+			}
+			);
+
+
+
+}
 
 function copyFunction() {
   var x = document.getElementById("pl").value;

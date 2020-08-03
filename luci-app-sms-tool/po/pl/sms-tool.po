@@ -149,7 +149,7 @@ msgid "Receive and display the message without decoding it as a PDU."
 msgstr "Odebrana wiadomość wyświetlana jest bez dekodowania jej jako PDU."
 
 msgid "Explanation of number and prefix"
-msgstr "Informacja dot. numeru i prefiksu"
+msgstr "Wyjaśnienie dot. numeru i prefiksu"
 
 msgid "Display a window to remind you of the correct phone number and prefix."
 msgstr "Wyświetlaj okno przypominające o poprawności numeru telefonu i prefiksie."
@@ -157,5 +157,38 @@ msgstr "Wyświetlaj okno przypominające o poprawności numeru telefonu i prefik
 msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."
 msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku '+'). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako 'krótki' i nie należy go poprzedzać prefiksem kraju."
 
-msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as short and should not be preceded by a country prefix."
-msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku +). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako krótki i nie należy go poprzedzać prefiksem kraju."
+msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as.. short and should not be preceded by a country prefix."
+msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku +). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako.. krótki i nie należy go poprzedzać prefiksem kraju."
+
+msgid "Each line must have the following format: 'Contact name;Phone number'."
+msgstr "Każda linia powinna mieć następujący format: 'Nazwa kontaktu;Numer telefonu'."
+
+msgid "User Phonebook"
+msgstr "Kontakty użytkownika"
+
+msgid "User USSD Codes"
+msgstr "Kody użytkownika"
+
+msgid "Each line must have the following format: 'Code name;Code'."
+msgstr "Każda linia powinna mieć następujący format: 'Etykieta kodu;Kod'."
+
+msgid "Notification settings"
+msgstr "Ustawienia powiadomień"
+
+msgid "The LED informs about a new message."
+msgstr "Dioda informuje o nowej wiadomości."
+
+msgid "Check inbox every minute(s)"
+msgstr "Sprawdzaj skrzynkę odbiorczą co minut(y)"
+
+msgid "Specify how many minutes you want your inbox to be checked."
+msgstr "Podaj co ile minut ma być sprawdzana skrzynka odbiorcza."
+
+msgid "Notification LED"
+msgstr "Dioda powiadomień"
+
+msgid "Select the notification LED."
+msgstr "Wybierz diodę powiadomień."
+
+msgid "Notify new messages"
+msgstr "Powiadomienie o nowych wiadomościach"

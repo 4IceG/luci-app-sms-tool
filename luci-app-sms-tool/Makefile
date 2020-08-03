@@ -7,12 +7,11 @@ PKG_NAME:=luci-app-sms-tool
 LUCI_TITLE:=LuCI Support for sms_tool
 LUCI_PKGARCH:=all
 LUCI_DEPENDS:=+sms-tool
-PKG_VERSION:=1.3
+PKG_VERSION:=1.4
 PKG_LICENSE:=GPLv3
 
 define Package/luci-app-sms-tool/postinst
 #!/bin/sh
-chmod 775 /etc/config/sms_tool
 rm -rf /tmp/luci-indexcache
 rm -rf /tmp/luci-modulecache/
 exit 0
