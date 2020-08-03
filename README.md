@@ -27,19 +27,19 @@ opkg install luci-app-sms-tool_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.3q.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4a.PNG)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.3w.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4b.PNG)
 
 - "USSD" window / Okno kodów USSD:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.3e.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4c.PNG)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.3r.PNG)
+![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4de.png)
 
 
 ## Thanks to / Podziękowania
