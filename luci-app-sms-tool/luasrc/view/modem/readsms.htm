@@ -8,7 +8,7 @@
 
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 
-	local sms = tostring(luci.sys.exec("sms_tool 2>/dev/null -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv"))
+	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv 2>/dev/null"))
 
 	local smscuta = string.sub (sms, 8)
 	local smscut = smscuta:sub(1, #smscuta - 2)
