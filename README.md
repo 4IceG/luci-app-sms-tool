@@ -1,5 +1,6 @@
 ## Luci-app-sms-tool
 
+![GitHub release (latest by date)](https://img.shields.io/github/downloads/IceG2020/luci-app-sms-tool/releases)
 ![GitHub All Releases](https://img.shields.io/github/downloads/IceG2020/luci-app-sms-tool/total)
 ![GitHub stars](https://img.shields.io/github/stars/IceG2020/luci-app-sms-tool?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/IceG2020/luci-app-sms-tool?style=flat-square)
