@@ -15,10 +15,11 @@ local PHB_FILE_PATH = "/etc/config/phonebook.user"
 
 local m
 local s
-local dev1, dev2, dev3
+local dev1, dev2, dev3, leds
 local try_devices1 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM*") or nixio.fs.glob("/dev/cdc*")
 local try_devices2 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM*") or nixio.fs.glob("/dev/cdc*")
 local try_devices3 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM*") or nixio.fs.glob("/dev/cdc*")
+local try_leds = nixio.fs.glob("/sys/class/leds/*")
 
 local devv = tostring(uci:get("sms_tool", "general", "readport"))
 
@@ -106,5 +107,37 @@ function tb.write(self, section, value)
     		fs.writefile(USSD_FILE_PATH, value)
 end
 
+s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("Notification settings"))
+s.anonymous = true
+
+local uw = s:option(Flag, "lednotify", translate("Notify new messages"), "" .. translate("The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."))
+uw.rmempty = false
+
+function uw.write(self, section, value)
+    if value == '1' then
+        luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
+	 luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/sbin/smsled-cron.sh")
+    elseif value == '0' then
+        luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/sbin/smsled-cron.sh")
+    end
+    return Flag.write(self, section ,value)
+end
+
+local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), "" .. translate("Specify how many minutes you want your inbox to be checked."))
+time.rmempty = true
+time.maxlength = 1
+time.default = 0
+
+
+leds = s:option(Value, "smsled", translate("Notification LED"), "" .. translate("Select the notification LED."))
+if try_leds then
+local node
+local status
+for node in try_leds do
+local status = node
+local all = string.sub (status, 17)
+leds:value(all, all)
+end
+end
 
 return m

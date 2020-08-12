@@ -7,7 +7,7 @@ PKG_NAME:=luci-app-sms-tool
 LUCI_TITLE:=LuCI Support for sms_tool
 LUCI_PKGARCH:=all
 LUCI_DEPENDS:=+sms-tool
-PKG_VERSION:=1.4
+PKG_VERSION:=1.5
 PKG_LICENSE:=GPLv3
 
 define Package/luci-app-sms-tool/postinst
@@ -21,7 +21,7 @@ define Package/$(PKG_NAME)/config
 # shown in make menuconfig <Help>
 help
 	$(LUCI_TITLE)
-	Version: $(PKG_VERSION)-$(PKG_RELEASE)
+	Version: $(PKG_VERSION)
 endef
 
 include $(TOPDIR)/feeds/luci/luci.mk

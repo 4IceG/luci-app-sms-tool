@@ -27,7 +27,7 @@
 			<div class="td left" width="15%"><%:User USSD Codes%>:</div>
 
 			<div class="td left" style="width:41%;">
-				<select name="ussd" id="pl" onchange="copyFunction()">
+				<select name="ussd" id="pl" onclick="copyFunction()">
 
  				</select>
 			</div>
@@ -54,6 +54,7 @@
 
 <script type="text/javascript">//<![CDATA[
 
+
 window.onload = function readUSER() {
 
 
@@ -67,7 +68,7 @@ window.onload = function readUSER() {
 
 					for(var d=0;d<=count;d++)
 						{
-    			    				var opt = document.createElement('option');
+    			    		var opt = document.createElement('option');
 
 							var s = json[d].usd;
 							var fields = s.split(/;/);
@@ -75,8 +76,8 @@ window.onload = function readUSER() {
 							var code = fields[1];
 							opt.text = name;
 							opt.value = code.trim();
-    							opt.innerHTML = name;
-    							select.appendChild(opt);
+    					    opt.innerHTML = name;
+    						select.appendChild(opt);
 						}
 
 			}

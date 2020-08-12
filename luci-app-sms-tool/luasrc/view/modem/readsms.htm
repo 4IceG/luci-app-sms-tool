@@ -7,19 +7,24 @@
 	local uci = require "luci.model.uci".cursor()
 
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
-
+	local led = tostring(uci:get("sms_tool", "general", "smsled"))
 	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv 2>/dev/null"))
-
 	local smscuta = string.sub (sms, 8)
 	local smscut = smscuta:sub(1, #smscuta - 2)
-
 	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
 	local all = string.sub (statusb, -3)
-
+	local smsnum = string.sub (statusb, 23, 27)
+	local smscount = string.match(smsnum, '%d+')
 	local location = ""
 	local l = string.sub (statusb, 15, 16)
 	if l == "SM" then
       		location = translate("SIM Card")
+ 	end
+	local ln = tostring(uci:get("sms_tool", "general", "lednotify"))
+	if ln == "1" then
+		luci.sys.call("/etc/init.d/cron restart")
+		luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+      		luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
  	end
 
 -%>
@@ -73,17 +78,19 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			var x = <%=all%>;
 			for(var d=0;d<=x;d++)
 				{
+					
+  						var row = table.insertRow(-1);
+  						var cell1 = row.insertCell(0);
+  						var cell2 = row.insertCell(0);
+  						var cell3 = row.insertCell(0);
+  						var cell4 = row.insertCell(0);
 
-  					var row = table.insertRow(-1);
-  					var cell1 = row.insertCell(0);
-  					var cell2 = row.insertCell(0);
-  					var cell3 = row.insertCell(0);
-  					var cell4 = row.insertCell(0);
+ 				 		cell4.innerHTML = json[d].sender;
+  						cell3.innerHTML = json[d].timestamp;
+    					cell2.innerHTML = json[d].content;
+						cell1.innerHTML = "<img class='cbi-button' id="+"btn"+json[d].index+" src='<%=resource%>/icons/delsms.png' onclick='delete_me()'>"
 
- 				 	cell4.innerHTML = json[d].sender;
-  					cell3.innerHTML = json[d].timestamp;
-    				cell2.innerHTML = json[d].content;
-					cell1.innerHTML = "<img class='cbi-button' id="+"btn"+json[d].index+" src='<%=resource%>/icons/delsms.png' onclick='delete_me()'>"
+					
 				}
 	
 	}
@@ -188,7 +195,7 @@ function delete_me()
 	</table>
 
 	<div class="table" width="100%" >
-	<div class="tr cbi-rowstyle-1">
+    <div class="tr cbi-rowstyle-1">
 	</div>
 
 	<div class="td right" style="width:100%;">
