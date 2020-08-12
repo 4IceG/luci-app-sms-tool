@@ -182,7 +182,7 @@ msgid "Notification settings"
 msgstr "Ustawienia powiadomień"
 
 msgid "The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."
-msgstr "Powiadomienie diodą o nowej wiadomości. Przed uruchomieniem tej funkcji proszę ustawić czas sprawdzania skrzynki odbiorczej oraz wybrać diodę diodę powiadomień."
+msgstr "Powiadomienie diodą o nowej wiadomości. Przed uruchomieniem tej funkcji proszę ustawić czas sprawdzania skrzynki odbiorczej oraz wybrać diodę powiadomień."
 
 msgid "Check inbox every minute(s)"
 msgstr "Sprawdzaj skrzynkę odbiorczą co minut(y)"
