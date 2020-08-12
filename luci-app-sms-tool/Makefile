@@ -14,6 +14,8 @@ define Package/luci-app-sms-tool/postinst
 #!/bin/sh
 rm -rf /tmp/luci-indexcache
 rm -rf /tmp/luci-modulecache/
+chmod 755 /sbin/smsled-cron.sh
+chmod 755 /sbin/smsled.sh
 exit 0
 endef
 
