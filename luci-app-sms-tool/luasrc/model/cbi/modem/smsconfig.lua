@@ -126,7 +126,7 @@ end
 local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), "" .. translate("Specify how many minutes you want your inbox to be checked."))
 time.rmempty = true
 time.maxlength = 2
-time.default = 0
+time.default = 15
 
 function time.validate(self, value)
 	if ( tonumber(value) < 60 and tonumber(value) > 1 ) then
