@@ -10,6 +10,10 @@
 	SMSC=$(cat /etc/config/sms_count)
 	LED="/sys/class/leds/$LEDX/brightness"
 
+if [ $SMS == $SMSC ]; then
+    exit 0
+fi
+
 while [ $SMS > $SMSC ]; do
 
     echo 1 > $LED
