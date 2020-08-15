@@ -7,9 +7,7 @@
 
 Luci-app-sms-tool is a mini gui for handling messages via sms_tool application/project https://eko.one.pl/?p=openwrt-sms_tool
 Works with mPCI-E and USB 3G/LTE modems. Don't work with HiLink/RNDIS modems.
-
 /
-
 Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sms_tool https://eko.one.pl/?p=openwrt-sms_tool. Aplikacji umożliwia obsługę wiadomości sms i kodów ussd. Działa na modemach mPCI-E oraz USB 3G/LTE. Nie działa z modemami HiLink/RNDIS.
 
 ## Installation / Instalacja
@@ -28,19 +26,19 @@ opkg install luci-app-sms-tool_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4ena.PNG)
+![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/readsms.png)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4enb.PNG)
+![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/sendsms.png)
 
 - "USSD" window / Okno kodów USSD:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4enc.PNG)
+![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/ussd.png)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/IceG2020/luci-app-sms-tool/master/screenshots/1.4end.png)
+![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/smsconfig.png)
 
 
 ## Thanks to / Podziękowania
