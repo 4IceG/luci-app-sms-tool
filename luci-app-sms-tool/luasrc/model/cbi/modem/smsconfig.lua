@@ -129,7 +129,7 @@ time.maxlength = 2
 time.default = 15
 
 function time.validate(self, value)
-	if ( tonumber(value) < 60 and tonumber(value) > 1 ) then
+	if ( tonumber(value) < 60 and tonumber(value) > 0 ) then
 	return value
 	end
 end
