@@ -116,11 +116,14 @@ end
 
 function count_sms()
     os.execute("sleep 3")
-    local devv = tostring(uci:get("sms_tool", "general", "readport"))
-    local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
-    local smsnum = string.sub (statusb, 23, 27)
-    local smscount = string.match(smsnum, '%d+')
-    os.execute("echo " .. smscount .. " > /etc/config/sms_count")
+    local cursor = luci.model.uci.cursor()
+    if cursor:get("sms_tool", "general", "lednotify") == "1" then
+        local devv = tostring(uci:get("sms_tool", "general", "readport"))
+        local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
+        local smsnum = string.sub (statusb, 23, 27)
+        local smscount = string.match(smsnum, '%d+')
+        os.execute("echo " .. smscount .. " > /etc/config/sms_count")
+    end
 end
 
 
