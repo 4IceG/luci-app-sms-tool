@@ -4,7 +4,6 @@
 
 	DEV=$(uci -q get sms_tool.general.readport)
 	LEDX=$(uci -q get sms_tool.general.smsled)
-	# CT=$(uci -q get sms_tool.general.checktime)
 	STX=$(sms_tool -s SM -d $DEV status | cut -c23-27)
 	SMS=$(echo $STX | tr -dc '0-9')
 	SMSC=$(cat /etc/config/sms_count)
@@ -22,7 +21,6 @@ while [ $SMS > $SMSC ]; do
 	sleep 2
 
 	DEV=$(uci -q get sms_tool.general.readport)
-	# CT=$(uci -q get sms_tool.general.checktime)
 	STX=$(sms_tool -s SM -d $DEV status | cut -c23-27)
 	SMS=$(echo $STX | tr -dc '0-9')
 	SMSC=$(cat /etc/config/sms_count)
