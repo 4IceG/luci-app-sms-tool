@@ -134,6 +134,7 @@ function time.validate(self, value)
 	end
 end
 
+
 leds = s:option(Value, "smsled", translate("Notification LED"), "" .. translate("Select the notification LED."))
 if try_leds then
 local node

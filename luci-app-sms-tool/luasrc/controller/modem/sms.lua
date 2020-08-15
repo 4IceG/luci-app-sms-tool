@@ -25,6 +25,7 @@ function index()
 	entry({"admin", "modem", "sms", "run_ussd"}, call("ussd"), nil).leaf = true
 	entry({"admin", "modem", "sms", "run_sms"}, call("sms"), nil).leaf = true
 	entry({"admin", "modem", "sms", "readsim"}, call("slots"), nil).leaf = true
+	entry({"admin", "modem", "sms", "countsms"}, call("count_sms"), nil).leaf = true
 	entry({"admin", "modem", "sms", "user_ussd"}, call("userussd"), nil).leaf = true
 	entry({"admin", "modem", "sms", "user_phonebook"}, call("userphb"), nil).leaf = true
 end
@@ -113,6 +114,15 @@ function slots()
 end
 
 
+function count_sms()
+    os.execute("sleep 3")
+    local devv = tostring(uci:get("sms_tool", "general", "readport"))
+    local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
+    local smsnum = string.sub (statusb, 23, 27)
+    local smscount = string.match(smsnum, '%d+')
+    os.execute("echo " .. smscount .. " > /etc/config/sms_count")
+end
+
 
 function uussd(rv)
 	local c = nixio.fs.access("/etc/config/ussd.user") and
@@ -166,4 +176,3 @@ function userphb()
 	luci.http.prepare_content("application/json")
 	luci.http.write_json(phb)
 end
-
