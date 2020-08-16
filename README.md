@@ -38,7 +38,7 @@ opkg install luci-app-sms-tool_all.ipk
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/smsconfig.png)
+![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/smsconfigb.png)
 
 
 ## Thanks to / Podziękowania
