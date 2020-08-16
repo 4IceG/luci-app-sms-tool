@@ -163,9 +163,6 @@ msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 4
 msgid "Phonebook"
 msgstr "Książka adresowa"
 
-msgid "User Phonebook"
-msgstr "Książka adresowa użytkownika"
-
 msgid "Each line must have the following format: 'Contact name;Phone number'."
 msgstr "Każda linia powinna mieć następujący format: 'Nazwa kontaktu;Numer telefonu'."
 
