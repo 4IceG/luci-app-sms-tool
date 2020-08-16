@@ -15,15 +15,17 @@ fi
 
 while [ $SMS > $SMSC ]; do
 
-    echo 1 > $LED
-	sleep 3
-  	echo 0 > $LED
-	sleep 2
-
 	DEV=$(uci -q get sms_tool.general.readport)
+    LON=$(uci -q get sms_tool.general.ledtimeon)
+    LOFF=$(uci -q get sms_tool.general.ledtimeoff)
 	STX=$(sms_tool -s SM -d $DEV status | cut -c23-27)
 	SMS=$(echo $STX | tr -dc '0-9')
 	SMSC=$(cat /etc/config/sms_count)
+
+    echo 1 > $LED
+	sleep $LON
+  	echo 0 > $LED
+	sleep $LOFF
 
   if [ $SMS == $SMSC ]; then
     break

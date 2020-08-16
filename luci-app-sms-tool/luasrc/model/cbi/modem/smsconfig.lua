@@ -124,7 +124,7 @@ function uw.write(self, section, value)
 end
 
 local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), "" .. translate("Specify how many minutes you want your inbox to be checked."))
-time.rmempty = true
+time.rmempty = false
 time.maxlength = 2
 time.default = 15
 
@@ -145,5 +145,15 @@ local all = string.sub (status, 17)
 leds:value(all, all)
 end
 end
+
+local timeon = s:option(Value, "ledtimeon", translate("LED on time second(s)"), "" .. translate("Specify for how long the LED should be on."))
+timeon.rmempty = false
+timeon.maxlength = 3
+timeon.default = 2
+
+local timeoff = s:option(Value, "ledtimeoff", translate("LED off time second(s)"), "" .. translate("Specify for how long the LED should be off."))
+timeoff.rmempty = false
+timeoff.maxlength = 3
+timeoff.default = 5
 
 return m

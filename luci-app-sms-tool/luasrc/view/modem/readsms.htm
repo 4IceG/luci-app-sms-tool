@@ -177,6 +177,14 @@ function delete_me()
 			}
 		);
 
+		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "countsms")%>/' , null,
+
+			function()
+			{
+			
+			}
+		);
+
 		return false;
 		}
 	}

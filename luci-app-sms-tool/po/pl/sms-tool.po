@@ -198,3 +198,15 @@ msgstr "Wybierz diodę powiadomień."
 
 msgid "Notify new messages"
 msgstr "Powiadomienie o nowych wiadomościach"
+
+msgid "LED on time second(s)"
+msgstr "Włącz diodę na sekund(y)"
+
+msgid "LED off time second(s)"
+msgstr "Wyłącz diodę na sekund(y)"
+
+msgid "Specify for how long the LED should be on."
+msgstr "Podaj przez jaki czas dioda ma być włączona."
+
+msgid "Specify for how long the LED should be off."
+msgstr "Podaj przez jaki czas dioda ma być wyłączona."
