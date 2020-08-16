@@ -146,12 +146,12 @@ leds:value(all, all)
 end
 end
 
-local timeon = s:option(Value, "ledtimeon", translate("LED on time second(s)"), "" .. translate("Specify for how long the LED should be on."))
+local timeon = s:option(Value, "ledtimeon", translate("Turn on the LED for seconds(s)"), "" .. translate("Specify for how long the LED should be on."))
 timeon.rmempty = false
 timeon.maxlength = 3
 timeon.default = 2
 
-local timeoff = s:option(Value, "ledtimeoff", translate("LED off time second(s)"), "" .. translate("Specify for how long the LED should be off."))
+local timeoff = s:option(Value, "ledtimeoff", translate("Turn off the LED for seconds(s)"), "" .. translate("Specify for how long the LED should be off."))
 timeoff.rmempty = false
 timeoff.maxlength = 3
 timeoff.default = 5
