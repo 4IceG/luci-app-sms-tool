@@ -6,7 +6,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=luci-app-sms-tool
 LUCI_TITLE:=LuCI Support for sms_tool
 LUCI_PKGARCH:=all
-LUCI_DEPENDS:=+sms-tool
+LUCI_DEPENDS:=+sms-tool +sms-tool +kmod-usb-serial +kmod-usb-serial-option
 PKG_VERSION:=1.6b
 PKG_LICENSE:=GPLv3
 
