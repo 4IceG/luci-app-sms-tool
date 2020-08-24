@@ -13,6 +13,8 @@ local uci = require "luci.model.uci".cursor()
 local USSD_FILE_PATH = "/etc/config/ussd.user"
 local PHB_FILE_PATH = "/etc/config/phonebook.user"
 
+local led = tostring(uci:get("sms_tool", "general", "smsled"))
+
 local m
 local s
 local dev1, dev2, dev3, leds
@@ -52,7 +54,7 @@ end
 end
 
 
-local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), "" .. translate("Each line must have the following format: 'Contact name;Phone number'."))
+local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), "" .. translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
 ta.rows = 7
 ta.rmempty = false
 
@@ -94,7 +96,7 @@ u.rmempty = false
 local p = s:option(Flag, "pdu", translate("Receive message without PDU decoding"), "" .. translate("Receive and display the message without decoding it as a PDU."))
 p.rmempty = false
 
-local tb = s:option(TextValue, "user_ussd", translate("User USSD Codes"), "" .. translate("Each line must have the following format: 'Code name;Code'."))
+local tb = s:option(TextValue, "user_ussd", translate("User USSD Codes"), "" .. translate("Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."))
 tb.rows = 7
 tb.rmempty = true
 
@@ -113,12 +115,14 @@ s.anonymous = true
 local uw = s:option(Flag, "lednotify", translate("Notify new messages"), "" .. translate("The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."))
 uw.rmempty = false
 
+
 function uw.write(self, section, value)
     if value == '1' then
         luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
-	 luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/sbin/smsled-cron.sh")
+	 luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/etc/init.d/smsled enable;/etc/init.d/smsled start")
     elseif value == '0' then
-        luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/sbin/smsled-cron.sh")
+       luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/etc/init.d/smsled stop;/etc/init.d/smsled disable")
+	luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
     end
     return Flag.write(self, section ,value)
 end
@@ -126,7 +130,7 @@ end
 local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), "" .. translate("Specify how many minutes you want your inbox to be checked."))
 time.rmempty = false
 time.maxlength = 2
-time.default = 15
+time.default = 5
 
 function time.validate(self, value)
 	if ( tonumber(value) < 60 and tonumber(value) > 0 ) then

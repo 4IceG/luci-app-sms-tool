@@ -22,7 +22,6 @@
  	end
 	local ln = tostring(uci:get("sms_tool", "general", "lednotify"))
 	if ln == "1" then
-		luci.sys.call("/etc/init.d/cron restart")
 		luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
       		luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
  	end
