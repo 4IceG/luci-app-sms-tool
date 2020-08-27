@@ -53,8 +53,8 @@ XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "user_phonebook")
 				var opt = document.createElement('option');
 				opt.text = phn2;
 				opt.value = phn2;
-    				opt.innerHTML = ">";
-    				select.appendChild(opt);
+    			opt.innerHTML = ">";
+    			select.appendChild(opt);
     			    	
 				var countpb = Object.keys(json).length;
 
@@ -69,8 +69,8 @@ XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "user_phonebook")
 							var number = fields[1];
 							opt.text = name;
 							opt.value = number.trim();
-    							opt.innerHTML = name;
-    							select.appendChild(opt);
+    						opt.innerHTML = name;
+    						select.appendChild(opt);
 						}
 
 			}
@@ -84,7 +84,7 @@ XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "user_phonebook")
 
 function copyFunction2() {
 
-  	var x = document.getElementById("pb").value;
+  	   var x = document.getElementById("pb").value;
        document.getElementById("numer").value = x;
 
 
@@ -93,9 +93,9 @@ function copyFunction2() {
 
 function count_replace(obj) {
 
-    document.getElementById('counter').innerHTML = (160 - document.getElementById('smstxt').value.length);
+        document.getElementById('counter').innerHTML = (160 - document.getElementById('smstxt').value.length);
 
-	 obj.value = obj.value.replace(/ą/g, 'a').replace(/Ą/g, 'A');
+	    obj.value = obj.value.replace(/ą/g, 'a').replace(/Ą/g, 'A');
         obj.value = obj.value.replace(/ć/g, 'c').replace(/Ć/g, 'C')
         obj.value = obj.value.replace(/ę/g, 'e').replace(/Ę/g, 'E')
         obj.value = obj.value.replace(/ł/g, 'l').replace(/Ł/g, 'L')
@@ -104,7 +104,7 @@ function count_replace(obj) {
         obj.value = obj.value.replace(/ś/g, 's').replace(/Ś/g, 'S')
         obj.value = obj.value.replace(/ż/g, 'z').replace(/Ż/g, 'Z')
         obj.value = obj.value.replace(/ź/g, 'z').replace(/Ź/g, 'Z');
-	document.getElementById("odp").innerHTML = "";
+	    document.getElementById("odp").innerHTML = "";
 
 }
 
@@ -123,7 +123,7 @@ function postcmd(cmd) {
 	 	var cut = x.response;
 		cut = cut.substr(0, 20);
 	if ( cut == "sms sent sucessfully" ) {
-        	document.getElementById("odp").innerHTML = "<%:SMS sent sucessfully%>"};
+        document.getElementById("odp").innerHTML = "<%:SMS sent sucessfully%>"};
 
     });
     return false;
@@ -161,11 +161,11 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 		}
 		num = num.concat(tm);
         	postcmd(num);
-	 	       var delsms = document.getElementById("smstxt");
-		        var delnum = document.getElementById("numer");
+	 	    var delsms = document.getElementById("smstxt");
+		    var delnum = document.getElementById("numer");
 			document.getElementById('counter').innerHTML = "160";
-		          delsms.value = "";
-		          delnum.value = "";
+		    delsms.value = "";
+		    delnum.value = "";
         	return true;
         });
     }, true);
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 <h2><%:SMS Messages%></h2>
 	<label><%:Web UI for handling messages via sms_tool.%></label>
 	<p></p>
-	<div class="label" style="float: right; text-align: center;">Forum eko.one.pl</div>
+	<div style="float: right;"><a href="https://eko.one.pl/forum/viewtopic.php?id=20096"><img src='<%=resource%>/icons/e1.png' alt="eko.one.pl"/></a></div>
 	<h4><%:Send Messages%></h4>
 
 	<div class="table" width="100%">

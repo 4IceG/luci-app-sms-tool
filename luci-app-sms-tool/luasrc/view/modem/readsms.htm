@@ -86,7 +86,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
  				 		cell4.innerHTML = json[d].sender;
   						cell3.innerHTML = json[d].timestamp;
-    					cell2.innerHTML = json[d].content;
+    						cell2.innerHTML = json[d].content;
 						cell1.innerHTML = "<img class='cbi-button' id="+"btn"+json[d].index+" src='<%=resource%>/icons/delsms.png' onclick='delete_me()'>"
 
 					
@@ -194,7 +194,7 @@ function delete_me()
 <h2><%:SMS Messages%></h2>
 	<label><%:Web UI for handling messages via sms_tool.%></label>
 	<p></p>
-	<div class="label" style="float: right; text-align: center;">Forum eko.one.pl</div>
+	<div style="float: right;"><a href="https://eko.one.pl/forum/viewtopic.php?id=20096"><img src='<%=resource%>/icons/e1.png' alt="eko.one.pl"/></a></div>
 	<h4><%:Received Messages%></h4>
 	<div class="table" width="100%">
 	<div class="tr"><div class="td left" width="33%"><%:Messages store in%>:</div><div class="td left"><%=location%></div></div>
@@ -212,7 +212,7 @@ function delete_me()
 	</table>
 
 	<div class="table" width="100%" >
-    <div class="tr cbi-rowstyle-1">
+    	<div class="tr cbi-rowstyle-1">
 	</div>
 
 	<div class="td right" style="width:100%;">

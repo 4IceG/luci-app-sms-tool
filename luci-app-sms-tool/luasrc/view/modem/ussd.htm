@@ -14,14 +14,9 @@
 <h2><%:USSD%></h2>
 	<label><%:Web UI for handling ussd codes via sms_tool.%></label>
 	<p></p>
-
-	<div class="label" style="float: right; text-align: center;">Forum eko.one.pl</div>
-
+	<div style="float: right;"><a href="https://eko.one.pl/forum/viewtopic.php?id=20096"><img src='<%=resource%>/icons/e1.png' alt="eko.one.pl"/></a></div>
 	<h4><%:Sending USSD codes%></h4>
-
-
 	<div class="table" width="100%">
-
 
 		<div class="tr">
 			<div class="td left" width="15%"><%:User USSD Codes%>:</div>
@@ -99,11 +94,11 @@ function postcmd(cmd) {
         console.log(x)
 	 	var cut = x.response;
 		if ( true == cut.includes("error: 0") ) {
-        		document.getElementById("odp").innerHTML = "<%:Phone failure.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Phone/Modem failure.%>"};
 		if ( true == cut.includes("error: 1") ) {
         		document.getElementById("odp").innerHTML = "<%:No connection to phone.%>"};
 		if ( true == cut.includes("error: 2") ) {
-        		document.getElementById("odp").innerHTML = "<%:Phone adapter link reserved.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Phone/Modem adapter link reserved.%>"};
 		if ( true == cut.includes("error: 3") ) {
         		document.getElementById("odp").innerHTML = "<%:Operation not allowed.%>"};
 		if ( true == cut.includes("error: 4") ) {
@@ -205,7 +200,7 @@ function postcmd(cmd) {
 		if ( true == cut.includes("error: 257") ) {
         		document.getElementById("odp").innerHTML = "<%:Call barred.%>"};
 		if ( true == cut.includes("error: 258") ) {
-        		document.getElementById("odp").innerHTML = "<%:Phone is busy.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Phone/Modem is busy.%>"};
 		if ( true == cut.includes("error: 259") ) {
         		document.getElementById("odp").innerHTML = "<%:User abort.%>"};
 		if ( true == cut.includes("error: 260") ) {
