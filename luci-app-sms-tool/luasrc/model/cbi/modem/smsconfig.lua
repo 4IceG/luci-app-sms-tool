@@ -54,7 +54,7 @@ end
 end
 
 
-local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), "" .. translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
+local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
 ta.rows = 7
 ta.rmempty = false
 
@@ -67,15 +67,15 @@ function ta.write(self, section, value)
     		fs.writefile(PHB_FILE_PATH, value)
 end
 
-local t = s:option(Value, "pnumber", translate("Prefix Number"), "" .. translate("The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."))
+local t = s:option(Value, "pnumber", translate("Prefix Number"), translate("The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."))
 t.rmempty = true
 t.default = 48
 
-local f = s:option(Flag, "prefix", translate("Add Prefix to Phone Number"), "" .. translate("Automatically add prefix to the phone number field."))
+local f = s:option(Flag, "prefix", translate("Add Prefix to Phone Number"), translate("Automatically add prefix to the phone number field."))
 f.rmempty = false
 
 
-local i = s:option(Flag, "information", translate("Explanation of number and prefix"), "" .. translate("Display a window to remind you of the correct phone number and prefix."))
+local i = s:option(Flag, "information", translate("Explanation of number and prefix"), translate("Display a window to remind you of the correct phone number and prefix."))
 i.rmempty = false
 
 
@@ -90,13 +90,13 @@ dev3:value(node, node)
 end
 end
 
-local u = s:option(Flag, "ussd", translate("Sending USSD Code in plain text"), "" .. translate("Send the USSD code in plain text. Command is not being coded to the PDU."))
+local u = s:option(Flag, "ussd", translate("Sending USSD Code in plain text"), translate("Send the USSD code in plain text. Command is not being coded to the PDU."))
 u.rmempty = false
 
-local p = s:option(Flag, "pdu", translate("Receive message without PDU decoding"), "" .. translate("Receive and display the message without decoding it as a PDU."))
+local p = s:option(Flag, "pdu", translate("Receive message without PDU decoding"), translate("Receive and display the message without decoding it as a PDU."))
 p.rmempty = false
 
-local tb = s:option(TextValue, "user_ussd", translate("User USSD Codes"), "" .. translate("Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."))
+local tb = s:option(TextValue, "user_ussd", translate("User USSD Codes"), translate("Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."))
 tb.rows = 7
 tb.rmempty = true
 
@@ -112,7 +112,7 @@ end
 s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("Notification settings"))
 s.anonymous = true
 
-local uw = s:option(Flag, "lednotify", translate("Notify new messages"), "" .. translate("The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."))
+local uw = s:option(Flag, "lednotify", translate("Notify new messages"), translate("The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."))
 uw.rmempty = false
 
 
@@ -127,7 +127,7 @@ function uw.write(self, section, value)
     return Flag.write(self, section ,value)
 end
 
-local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), "" .. translate("Specify how many minutes you want your inbox to be checked."))
+local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), translate("Specify how many minutes you want your inbox to be checked."))
 time.rmempty = false
 time.maxlength = 2
 time.default = 5
@@ -139,7 +139,7 @@ function time.validate(self, value)
 end
 
 
-leds = s:option(Value, "smsled", translate("Notification LED"), "" .. translate("Select the notification LED."))
+leds = s:option(Value, "smsled", translate("Notification LED"), translate("Select the notification LED."))
 if try_leds then
 local node
 local status
@@ -150,12 +150,12 @@ leds:value(all, all)
 end
 end
 
-local timeon = s:option(Value, "ledtimeon", translate("Turn on the LED for seconds(s)"), "" .. translate("Specify for how long the LED should be on."))
+local timeon = s:option(Value, "ledtimeon", translate("Turn on the LED for seconds(s)"), translate("Specify for how long the LED should be on."))
 timeon.rmempty = false
 timeon.maxlength = 3
 timeon.default = 1
 
-local timeoff = s:option(Value, "ledtimeoff", translate("Turn off the LED for seconds(s)"), "" .. translate("Specify for how long the LED should be off."))
+local timeoff = s:option(Value, "ledtimeoff", translate("Turn off the LED for seconds(s)"), translate("Specify for how long the LED should be off."))
 timeoff.rmempty = false
 timeoff.maxlength = 3
 timeoff.default = 5

@@ -160,11 +160,8 @@ msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 4
 msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as.. short and should not be preceded by a country prefix."
 msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku +). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako.. krótki i nie należy go poprzedzać prefiksem kraju."
 
-msgid "Phonebook"
-msgstr "Książka adresowa"
-
 msgid "Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."
-msgstr "Każda linia powinna mieć następujący format: 'Nazwa kontaktu;Numer telefonu'. Zapisywane do pliku '/etc/config/phonebook.user'."
+msgstr "Każda linia powinna mieć następujący format: 'Nazwa kontaktu;Numer telefonu'. Dla wygody kontakty użytkownika zapisywane są w pliku '/etc/config/phonebook.user'."
 
 msgid "User Phonebook"
 msgstr "Kontakty użytkownika"
@@ -173,7 +170,7 @@ msgid "User USSD Codes"
 msgstr "Kody użytkownika"
 
 msgid "Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."
-msgstr "Każda linia powinna mieć następujący format: 'Etykieta kodu;Kod'. Zapisywane do pliku '/etc/config/ussd.user'."
+msgstr "Każda linia powinna mieć następujący format: 'Etykieta kodu;Kod'. Dla wygody kody użytkownika zapisywane są w pliku '/etc/config/ussd.user'."
 
 msgid "Notification settings"
 msgstr "Ustawienia powiadomień"
