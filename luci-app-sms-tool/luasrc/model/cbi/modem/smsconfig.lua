@@ -54,7 +54,6 @@ dev2:value(node, node)
 end
 end
 
-
 local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
 ta.rows = 5
 ta.rmempty = false
@@ -90,20 +89,6 @@ function usctime.validate(self, value)
 	return value
 	end
 end
-
-local tsc = s:option(TextValue, "user_smscommands", translate("SMS Commands"), translate("Each line must have the following format: 'SMS text;Command to run'. Save to file '/etc/config/smscommands.user'."))
-tsc.rows = 5
-tsc.rmempty = true
-
-function tsc.cfgvalue(self, section)
-    return fs.readfile(SMSC_FILE_PATH)
-end
-
-function tsc.write(self, section, value)
-    		value = value:gsub("\r\n", "\n")
-    		fs.writefile(SMSC_FILE_PATH, value)
-end
-
 
 s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("USSD Codes Settings"))
 s.anonymous = true
