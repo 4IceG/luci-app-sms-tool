@@ -158,10 +158,10 @@ msgid "The phone number should be preceded by the country prefix (for Poland it 
 msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku '+'). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako 'krótki' i nie należy go poprzedzać prefiksem kraju."
 
 msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without +). If the number is 5, 4 or 3 characters, it is treated as.. short and should not be preceded by a country prefix."
-msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku +). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako.. krótki i nie należy go poprzedzać prefiksem kraju."
+msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku +). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako krótki i nie należy go poprzedzać prefiksem kraju."
 
 msgid "Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."
-msgstr "Każda linia powinna mieć następujący format: 'Nazwa kontaktu;Numer telefonu'. Dla wygody kontakty użytkownika zapisywane są w pliku '/etc/config/phonebook.user'."
+msgstr "Każda linijka powinna mieć następujący format: 'Nazwa kontaktu;Numer telefonu'. Dla wygody kontakty użytkownika zapisywane są w pliku '/etc/config/phonebook.user'."
 
 msgid "User Phonebook"
 msgstr "Kontakty użytkownika"
@@ -170,9 +170,9 @@ msgid "User USSD Codes"
 msgstr "Kody użytkownika"
 
 msgid "Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."
-msgstr "Każda linia powinna mieć następujący format: 'Etykieta kodu;Kod'. Dla wygody kody użytkownika zapisywane są w pliku '/etc/config/ussd.user'."
+msgstr "Każda linijka powinna mieć następujący format: 'Etykieta kodu;Kod'. Dla wygody kody użytkownika zapisywane są w pliku '/etc/config/ussd.user'."
 
-msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Ustawienia powiadomień"
 
 msgid "The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."
@@ -204,3 +204,21 @@ msgstr "Podaj przez jaki czas dioda ma być włączona."
 
 msgid "Specify for how long the LED should be off."
 msgstr "Podaj przez jaki czas dioda ma być wyłączona."
+
+msgid "Merge split Messages"
+msgstr "Połącz podzielone wiadomości"
+
+msgid "Merge the split messages into one. Checking this option will make it easier to read messages."
+msgstr "Podzielone wiadomości zostaną złączone w jedną. Ułatwi to odczyt dłuższych wiadomości."
+
+msgid "SMS Commands"
+msgstr "Polecenia SMS"
+
+msgid "Each line must have the following format: 'SMS text;Command to run'. Save to file '/etc/config/smscommands.user'."
+msgstr "Każda linijka powinna mieć następujący format: 'Tekst w wiadomości;Polecenie do wykonania'. Dla wygody polecenia SMS zapisywane są w pliku '/etc/config/smscommands.user'."
+
+msgid "SMS Commands Settings"
+msgstr "Ustawienia dla poleceń SMS"
+
+msgid "Enabling this option will execute the commands assigned to the message text."
+msgstr "Opcja umożliwi wykonanie poleceń przypisanych do tekstu wiadomości."

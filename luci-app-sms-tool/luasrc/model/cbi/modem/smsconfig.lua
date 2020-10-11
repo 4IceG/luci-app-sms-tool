@@ -12,6 +12,7 @@ local uci = require "luci.model.uci".cursor()
 
 local USSD_FILE_PATH = "/etc/config/ussd.user"
 local PHB_FILE_PATH = "/etc/config/phonebook.user"
+local SMSC_FILE_PATH = "/etc/config/smscommands.user"
 
 local led = tostring(uci:get("sms_tool", "general", "smsled"))
 
@@ -55,7 +56,7 @@ end
 
 
 local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
-ta.rows = 7
+ta.rows = 5
 ta.rmempty = false
 
 function ta.cfgvalue(self, section)
@@ -79,6 +80,31 @@ local i = s:option(Flag, "information", translate("Explanation of number and pre
 i.rmempty = false
 
 
+local usctime = s:option(Value, "cmdchecktime", translate("Check inbox every minute(s)"), translate("Specify how many minutes you want your inbox to be checked."))
+usctime.rmempty = false
+usctime.maxlength = 2
+usctime.default = 5
+
+function usctime.validate(self, value)
+	if ( tonumber(value) < 60 and tonumber(value) > 0 ) then
+	return value
+	end
+end
+
+local tsc = s:option(TextValue, "user_smscommands", translate("SMS Commands"), translate("Each line must have the following format: 'SMS text;Command to run'. Save to file '/etc/config/smscommands.user'."))
+tsc.rows = 5
+tsc.rmempty = true
+
+function tsc.cfgvalue(self, section)
+    return fs.readfile(SMSC_FILE_PATH)
+end
+
+function tsc.write(self, section, value)
+    		value = value:gsub("\r\n", "\n")
+    		fs.writefile(SMSC_FILE_PATH, value)
+end
+
+
 s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("USSD Codes Settings"))
 s.anonymous = true
 
@@ -97,7 +123,7 @@ local p = s:option(Flag, "pdu", translate("Receive message without PDU decoding"
 p.rmempty = false
 
 local tb = s:option(TextValue, "user_ussd", translate("User USSD Codes"), translate("Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."))
-tb.rows = 7
+tb.rows = 5
 tb.rmempty = true
 
 function tb.cfgvalue(self, section)
@@ -109,7 +135,7 @@ function tb.write(self, section, value)
     		fs.writefile(USSD_FILE_PATH, value)
 end
 
-s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("Notification settings"))
+s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("Notification Settings"))
 s.anonymous = true
 
 local uw = s:option(Flag, "lednotify", translate("Notify new messages"), translate("The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."))
