@@ -78,18 +78,6 @@ f.rmempty = false
 local i = s:option(Flag, "information", translate("Explanation of number and prefix"), translate("Display a window to remind you of the correct phone number and prefix."))
 i.rmempty = false
 
-
-local usctime = s:option(Value, "cmdchecktime", translate("Check inbox every minute(s)"), translate("Specify how many minutes you want your inbox to be checked."))
-usctime.rmempty = false
-usctime.maxlength = 2
-usctime.default = 5
-
-function usctime.validate(self, value)
-	if ( tonumber(value) < 60 and tonumber(value) > 0 ) then
-	return value
-	end
-end
-
 s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("USSD Codes Settings"))
 s.anonymous = true
 
