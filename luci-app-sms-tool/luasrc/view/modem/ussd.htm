@@ -83,11 +83,8 @@ window.onload = function readUSER() {
 
 function copyFunction() {
 	var node = document.getElementById('odp');
-    	if (node.style.visibility=='visible') {
         node.style.visibility = 'hidden';
-    	}
-    	else
-        node.style.visibility = 'visible'
+
   	var x = document.getElementById("pl").value;
   	document.getElementById("code").value = x;
   	document.getElementById("odp").innerHTML = "";
