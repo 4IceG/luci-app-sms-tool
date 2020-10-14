@@ -175,8 +175,8 @@ msgstr "Każda linijka powinna mieć następujący format: 'Etykieta kodu;Kod'. 
 msgid "Notification Settings"
 msgstr "Ustawienia powiadomień"
 
-msgid "The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."
-msgstr "Powiadomienie diodą o nowej wiadomości. Przed uruchomieniem tej funkcji proszę ustawić czas sprawdzania skrzynki odbiorczej oraz wybrać diodę powiadomień."
+msgid "The LED informs about a new message. Before activating this function, please config and save the SMS reading port, time to check SMS inbox and select the notification LED."
+msgstr "Powiadomienie diodą o nowej wiadomości. Przed uruchomieniem tej funkcji proszę ustawić port odczytu wiadomości, czas sprawdzania skrzynki odbiorczej oraz wybrać diodę powiadomień."
 
 msgid "Check inbox every minute(s)"
 msgstr "Sprawdzaj skrzynkę odbiorczą co minut(y)"

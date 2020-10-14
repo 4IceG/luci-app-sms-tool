@@ -1,4 +1,4 @@
--- Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
+﻿-- Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
 -- Licensed to the GNU General Public License v3.0.
 
 local util = require "luci.util"
@@ -15,6 +15,7 @@ local PHB_FILE_PATH = "/etc/config/phonebook.user"
 local SMSC_FILE_PATH = "/etc/config/smscommands.user"
 
 local led = tostring(uci:get("sms_tool", "general", "smsled"))
+local ledtime = tostring(uci:get("sms_tool", "general", "checktime"))
 
 local m
 local s
@@ -46,6 +47,7 @@ dev1:value(node, node)
 end
 end
 
+
 dev2 = s:option(Value, "sendport", translate("SMS Sending Port"))
 if try_devices2 then
 local node
@@ -54,8 +56,9 @@ dev2:value(node, node)
 end
 end
 
+
 local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
-ta.rows = 5
+ta.rows = 7
 ta.rmempty = false
 
 function ta.cfgvalue(self, section)
@@ -78,6 +81,7 @@ f.rmempty = false
 local i = s:option(Flag, "information", translate("Explanation of number and prefix"), translate("Display a window to remind you of the correct phone number and prefix."))
 i.rmempty = false
 
+
 s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("USSD Codes Settings"))
 s.anonymous = true
 
@@ -96,7 +100,7 @@ local p = s:option(Flag, "pdu", translate("Receive message without PDU decoding"
 p.rmempty = false
 
 local tb = s:option(TextValue, "user_ussd", translate("User USSD Codes"), translate("Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."))
-tb.rows = 5
+tb.rows = 7
 tb.rmempty = true
 
 function tb.cfgvalue(self, section)
@@ -111,20 +115,27 @@ end
 s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("Notification Settings"))
 s.anonymous = true
 
-local uw = s:option(Flag, "lednotify", translate("Notify new messages"), translate("The LED informs about a new message. Before activating this function, please enter and save the time to check SMS inbox and select the notification LED."))
+local uw = s:option(Flag, "lednotify", translate("Notify new messages"), translate("The LED informs about a new message. Before activating this function, please config and save the SMS reading port, time to check SMS inbox and select the notification LED."))
 uw.rmempty = false
 
 
 function uw.write(self, section, value)
+if devv ~= nil or devv ~= '' then
+if ( smscount ~= nil and led ~= nil ) then
     if value == '1' then
+
         luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
-	 luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/etc/init.d/smsled enable;/etc/init.d/smsled start")
+	    luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/etc/init.d/smsled enable;/etc/init.d/smsled start")
+
     elseif value == '0' then
        luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/etc/init.d/smsled stop;/etc/init.d/smsled disable")
-	luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+	   luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
     end
-    return Flag.write(self, section ,value)
+return Flag.write(self, section ,value)
+  end
 end
+end
+
 
 local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), translate("Specify how many minutes you want your inbox to be checked."))
 time.rmempty = false
