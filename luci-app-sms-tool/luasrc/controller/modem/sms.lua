@@ -37,7 +37,6 @@ function delete_sms(smsindex)
 
 for d in s:gmatch("%d+") do 
 	os.execute("sms_tool -d " .. devv .. " delete " .. d .. "")
-    os.execute("sleep 1")
 end
 
 
