@@ -208,8 +208,8 @@ msgstr "Podaj przez jaki czas dioda ma być wyłączona."
 msgid "Merge split Messages"
 msgstr "Połącz podzielone wiadomości"
 
-msgid "Merge the split messages into one. Checking this option will make it easier to read messages."
-msgstr "Podzielone wiadomości zostaną złączone w jedną. Ułatwi to odczyt dłuższych wiadomości."
+msgid "Checking this option will make it easier to read the message, but it will cause a discrepancy in the number of messages shown and received."
+msgstr "Podzielone wiadomości zostaną złączone w jedną. Zaznaczenie tej opcji ułatwi czytanie wiadomości, ale spowoduje niezgodność w ilości pokazanych, odebranych wiadomości."
 
 msgid "SMS Commands"
 msgstr "Polecenia SMS"

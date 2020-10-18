@@ -1,4 +1,4 @@
-﻿-- Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
+-- Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
 -- Licensed to the GNU General Public License v3.0.
 
 local util = require "luci.util"
@@ -25,6 +25,7 @@ local try_devices2 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM
 local try_devices3 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM*") or nixio.fs.glob("/dev/cdc*")
 local try_leds = nixio.fs.glob("/sys/class/leds/*")
 
+
 local devv = tostring(uci:get("sms_tool", "general", "readport"))
 
 local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
@@ -47,6 +48,8 @@ dev1:value(node, node)
 end
 end
 
+local msm = s:option(Flag, "mergesms", translate("Merge split Messages"), translate("Checking this option will make it easier to read the message, but it will cause a discrepancy in the number of messages shown and received."))
+msm.rmempty = false
 
 dev2 = s:option(Value, "sendport", translate("SMS Sending Port"))
 if try_devices2 then
@@ -111,6 +114,7 @@ function tb.write(self, section, value)
     		value = value:gsub("\r\n", "\n")
     		fs.writefile(USSD_FILE_PATH, value)
 end
+
 
 s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("Notification Settings"))
 s.anonymous = true
