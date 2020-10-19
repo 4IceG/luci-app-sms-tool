@@ -11,7 +11,7 @@ Works with mPCI-E and USB 3G/LTE modems. Don't work with HiLink/RNDIS modems.
 Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sms_tool https://eko.one.pl/?p=openwrt-sms_tool. Aplikacji umożliwia obsługę wiadomości sms i kodów ussd. Działa na modemach mPCI-E oraz USB 3G/LTE. Nie działa z modemami HiLink/RNDIS.
 
 ## Plans for the next release / Plany dot. kolejnego wydania:
-- Adding SMS commands. / Dodanie poleceń SMS.
+- Add SMS commands. / Dodanie poleceń SMS.
 
 ## Installation / Instalacja
 ``` bash
