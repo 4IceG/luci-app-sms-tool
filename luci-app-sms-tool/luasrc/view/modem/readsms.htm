@@ -188,13 +188,18 @@ function delete_me()
                 	rowCount++;
             		}
         		}
-        		var del = "";
-        		del += rowCount;
-        		document.getElementById('usse').innerHTML = del  + " / " + <%=all%>;
+		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "readsim")%>', null,
+			function(x, sim)
+			{
+			document.getElementById('usse').innerHTML=sim.use  + " / " + sim.all;
+
+			}
+			);
 			}
 
 
 		);
+
 
 
 		XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "countsms")%>/' , null,
@@ -259,8 +264,8 @@ function delete_me()
 
     	<td class="td left" width="15%"><strong><%:From%></strong></td>
     	<td class="td left" width="15%"><strong><%:Received%></strong></td>
-    	<td class="td center" width="60%" ><strong><%:Message%></strong></td>
-    	<td class="td center" width="10%"></td>
+    	<td class="td center" width="62%" ><strong><%:Message%></strong></td>
+    	<td class="td center" width="8%"><strong><%:Delete%></strong></td>
  	</tr>
 	</table>
 
