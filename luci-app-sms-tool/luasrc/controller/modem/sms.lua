@@ -32,14 +32,11 @@ end
 
 
 function delete_sms(smsindex)
-	local devv = tostring(uci:get("sms_tool", "general", "readport"))
-	local s = smsindex
-
+local devv = tostring(uci:get("sms_tool", "general", "readport"))
+local s = smsindex
 for d in s:gmatch("%d+") do 
 	os.execute("sms_tool -d " .. devv .. " delete " .. d .. "")
 end
-
-
 end
 
 function delete_all_sms()
