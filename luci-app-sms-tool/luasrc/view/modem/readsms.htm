@@ -7,24 +7,16 @@
 	local uci = require "luci.model.uci".cursor()
 
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
-	local led = tostring(uci:get("sms_tool", "general", "smsled"))
 	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv 2>/dev/null"))
 	local smsmer = tostring(uci:get("sms_tool", "general", "mergesms"))
 	local smscuta = string.sub (sms, 8)
 	local smscut = smscuta:sub(1, #smscuta - 2)
 	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
 	local all = string.sub (statusb, -3)
-	local smsnum = string.sub (statusb, 23, 27)
-	local smscount = string.match(smsnum, '%d+')
 	local location = ""
 	local l = string.sub (statusb, 15, 16)
 	if l == "SM" then
       		location = translate("SIM Card")
- 	end
-	local ln = tostring(uci:get("sms_tool", "general", "lednotify"))
-	if ln == "1" then
-		luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
-      		luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
  	end
 
 -%>

@@ -104,13 +104,17 @@ end
 function slots()
 	local sim = { }
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
-
+	local led = tostring(uci:get("sms_tool", "general", "smsled"))
+	local ln = tostring(uci:get("sms_tool", "general", "lednotify"))
 	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
-
 	local usex = string.sub (statusb, 23, 27)
 	local max = string.sub (statusb, -3)
-
 	sim["use"] = string.match(usex, '%d+')
+	local smscount = string.match(usex, '%d+')
+	if ln == "1" then
+		luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+      		luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
+ 	end
 	sim["all"] = string.match(max, '%d+')
 	luci.http.prepare_content("application/json")
 	luci.http.write_json(sim)
