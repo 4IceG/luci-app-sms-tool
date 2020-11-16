@@ -102,13 +102,19 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     			result = [];
 
 			MergeMySMS.forEach(function (o) {
-    			if (!this[o.timestamp]) {
+    			if (!this[o.timestamp] && !this[o.sender]) {
         		this[o.timestamp] = { index: o.index, sender: o.sender, timestamp: o.timestamp, content: o.content };
         		result.push(this[o.timestamp]);
         		return;
     			}
+			if (this[o.timestamp].sender == o.sender) {
     			this[o.timestamp].content += o.content;
-    			this[o.timestamp].index += '-' + o.index;
+    			this[o.timestamp].index += '-' + o.index;}
+			else {
+			this[o.timestamp] = { index: o.index, sender: o.sender, timestamp: o.timestamp, content: o.content };
+        		result.push(this[o.timestamp]);
+        		return;
+			}
 			}, Object.create(null));
 
 		
