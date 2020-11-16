@@ -205,7 +205,7 @@ msgstr "Podaj przez jaki czas dioda ma być włączona."
 msgid "Specify for how long the LED should be off."
 msgstr "Podaj przez jaki czas dioda ma być wyłączona."
 
-msgid "Merge split Messages"
+msgid "Merge split messages"
 msgstr "Połącz podzielone wiadomości"
 
 msgid "Checking this option will make it easier to read the message, but it will cause a discrepancy in the number of messages shown and received."
