@@ -209,7 +209,7 @@ msgid "Merge split Messages"
 msgstr "Połącz podzielone wiadomości"
 
 msgid "Checking this option will make it easier to read the message, but it will cause a discrepancy in the number of messages shown and received."
-msgstr "Podzielone wiadomości zostaną złączone w jedną. Zaznaczenie tej opcji ułatwi czytanie wiadomości, ale spowoduje niezgodność w ilości pokazanych, odebranych wiadomości."
+msgstr "Podzielone wiadomości zostaną złączone. Zaznaczenie tej opcji ułatwi czytanie sms-ów, ale spowoduje niezgodność w ilości pokazanych, odebranych wiadomości."
 
 msgid "SMS Commands"
 msgstr "Polecenia SMS"
