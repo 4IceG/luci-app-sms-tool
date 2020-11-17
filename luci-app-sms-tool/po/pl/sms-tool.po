@@ -11,7 +11,7 @@ msgid "Received Messages"
 msgstr "Odebrane wiadomości"
 
 msgid "Send Messages"
-msgstr "Wysyłanie Wiadomości"
+msgstr "Wysyłanie wiadomości"
 
 msgid "USSD"
 msgstr "USSD"
