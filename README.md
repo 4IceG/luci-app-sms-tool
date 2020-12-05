@@ -16,7 +16,7 @@ Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sm
 ## Installation / Instalacja
 ``` bash
 #Modem drivers are required for proper operation.
-opkg install kmod-usb-serial kmod-usb-serial-option
+opkg install kmod-usb-serial kmod-usb-serial-option luci-compat
 
 #Install sms-tool.
 opkg install sms-tool.ipk
