@@ -48,7 +48,7 @@ dev1:value(node, node)
 end
 end
 
-local msm = s:option(Flag, "mergesms", translate("Merge split messages"), translate("Checking this option will make it easier to read the message, but it will cause a discrepancy in the number of messages shown and received."))
+local msm = s:option(Flag, "mergesms", translate("Merge split messages"), translate("Checking this option will make it easier to read the messages, but it will cause a discrepancy in the number of messages shown and received."))
 msm.rmempty = false
 
 dev2 = s:option(Value, "sendport", translate("SMS Sending Port"))

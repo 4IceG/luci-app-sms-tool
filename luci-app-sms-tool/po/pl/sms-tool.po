@@ -208,17 +208,17 @@ msgstr "Podaj przez jaki czas dioda ma być wyłączona."
 msgid "Merge split messages"
 msgstr "Połącz podzielone wiadomości"
 
-msgid "Checking this option will make it easier to read the message, but it will cause a discrepancy in the number of messages shown and received."
+msgid "Checking this option will make it easier to read the messages, but it will cause a discrepancy in the number of messages shown and received."
 msgstr "Podzielone wiadomości zostaną złączone. Zaznaczenie tej opcji ułatwi czytanie sms-ów, ale spowoduje niezgodność w ilości pokazanych, odebranych wiadomości."
 
 msgid "SMS Commands"
 msgstr "Polecenia SMS"
 
-msgid "Each line must have the following format: 'SMS text;Command to run'. Save to file '/etc/config/smscommands.user'."
-msgstr "Każda linijka powinna mieć następujący format: 'Tekst w wiadomości;Polecenie do wykonania'. Dla wygody polecenia SMS zapisywane są w pliku '/etc/config/smscommands.user'."
+msgid "Phone number"
+msgstr "Numer telefonu"
 
-msgid "SMS Commands Settings"
-msgstr "Ustawienia dla poleceń SMS"
+msgid "SMS Text"
+msgstr "Fraza w wiadomości"
 
-msgid "Enabling this option will execute the commands assigned to the message text."
-msgstr "Opcja umożliwi wykonanie poleceń przypisanych do tekstu wiadomości."
+msgid "Command/Script to run"
+msgstr "Polecenie/Skrypt do wykonania"
