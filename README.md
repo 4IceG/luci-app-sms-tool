@@ -25,8 +25,8 @@ opkg install sms-tool.ipk
 opkg install luci-app-sms-tool_all.ipk
 ```
 
-## My config (modem Quectel EM12-G):
-[![Luci-app-sms-tool](https://i9.ytimg.com/vi/4hy4nQ2uZnE/mq1.jpg?sqp=CNig5f4F&rs=AOn4CLCrE-U_n98wQVBo8XWQi0I1qSG6xw)](https://youtu.be/4hy4nQ2uZnE "Luci-app-sms-tool")
+## My video config (modem Quectel EM12-G):
+[![Luci-app-sms-tool](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/ytsms.PNG)](https://youtu.be/4hy4nQ2uZnE "Luci-app-sms-tool")
 
 ## Screenshots / Zrzuty ekranu
 
