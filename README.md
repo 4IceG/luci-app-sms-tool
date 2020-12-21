@@ -13,7 +13,7 @@ Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sm
 ## Plans for the next release / Plany dot. kolejnego wydania:
 - Add SMS commands. / Dodanie poleceń SMS.
 
-### Preview and quick configuration (modem Quectel EM12-G) / Podgląd oraz szybka konfiguracja (modemu Quectel EM12-G)
+### Preview and quick configuration (modem Quectel EM12-G) / Podgląd oraz szybka konfiguracja (modem Quectel EM12-G)
 
 ![](https://raw.githubusercontent.com/4IceG/Personal_data/master/smsconfig.gif)
 
