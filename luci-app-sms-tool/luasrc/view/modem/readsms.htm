@@ -72,10 +72,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			var json = JSON.parse(data);
 
 			var x = <%=all%>;
-			for(var d=0;d<=x;d++)
-				{
-					
-  						var row = table.insertRow(-1);
+        		for (var d = 0; d < json.length; d++) {
+
+            					row = table.insertRow(-1);
   						var cell1 = row.insertCell(0);
   						var cell2 = row.insertCell(0);
   						var cell3 = row.insertCell(0);
@@ -125,10 +124,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			var json = JSON.parse(data);
 
 			var x = <%=all%>;
-			for(var d=0;d<=x;d++)
-				{
-					
-  						var row = table.insertRow(-1);
+        		for (var d = 0; d < json.length; d++) {
+
+            					row = table.insertRow(-1);
   						var cell1 = row.insertCell(0);
   						var cell2 = row.insertCell(0);
   						var cell3 = row.insertCell(0);
