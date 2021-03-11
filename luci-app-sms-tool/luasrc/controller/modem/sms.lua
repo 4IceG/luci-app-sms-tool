@@ -1,4 +1,4 @@
--- Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
+-- Copyright 2020-2021 Rafał Wabik (IceG) - From eko.one.pl forum
 -- Licensed to the GNU General Public License v3.0.
 
 
@@ -106,9 +106,12 @@ function slots()
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 	local led = tostring(uci:get("sms_tool", "general", "smsled"))
 	local ln = tostring(uci:get("sms_tool", "general", "lednotify"))
-	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
+
+	local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
+
+	local statusb = luci.util.exec("sms_tool -s" .. smsmem .. " -d ".. devv .. " status")
 	local usex = string.sub (statusb, 23, 27)
-	local max = string.sub (statusb, -3)
+	local max = string.sub (statusb, -5)
 	sim["use"] = string.match(usex, '%d+')
 	local smscount = string.match(usex, '%d+')
 	if ln == "1" then
@@ -126,7 +129,10 @@ function count_sms()
     local cursor = luci.model.uci.cursor()
     if cursor:get("sms_tool", "general", "lednotify") == "1" then
         local devv = tostring(uci:get("sms_tool", "general", "readport"))
-        local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
+
+	    local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
+
+        local statusb = luci.util.exec("sms_tool -s" .. smsmem .. " -d ".. devv .. " status")
         local smsnum = string.sub (statusb, 23, 27)
         local smscount = string.match(smsnum, '%d+')
         os.execute("echo " .. smscount .. " > /etc/config/sms_count")

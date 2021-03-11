@@ -1,4 +1,4 @@
--- Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
+-- Copyright 2020-2021 Rafał Wabik (IceG) - From eko.one.pl forum
 -- Licensed to the GNU General Public License v3.0.
 
 local util = require "luci.util"
@@ -28,7 +28,9 @@ local try_leds = nixio.fs.glob("/sys/class/leds/*")
 
 local devv = tostring(uci:get("sms_tool", "general", "readport"))
 
-local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
+local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
+
+local statusb = luci.util.exec("sms_tool -s".. smsmem .. " -d ".. devv .. " status")
 
 local smsnum = string.sub (statusb, 23, 27)
 
@@ -47,6 +49,12 @@ for node in try_devices1 do
 dev1:value(node, node)
 end
 end
+
+mem = s:option(ListValue, "storage", translate("Message storage area"), translate("Messages are stored in a specific location (for example, on the SIM card or modem memory), but other areas may also be available depending on the type of device."))
+mem.default = "SM"
+mem:value("SM", translate("SIM card"))
+mem:value("ME", translate("Modem memory"))
+mem.rmempty = true
 
 local msm = s:option(Flag, "mergesms", translate("Merge split messages"), translate("Checking this option will make it easier to read the messages, but it will cause a discrepancy in the number of messages shown and received."))
 msm.rmempty = false

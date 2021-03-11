@@ -73,8 +73,11 @@ msgstr "Interfejs użytkownika dla sms_tool do obsługi wiadomości sms."
 msgid "Web UI for handling ussd codes via sms_tool."
 msgstr "Interfejs użytkownika dla sms_tool do obsługi kodów ussd."
 
-msgid "SIM Card"
+msgid "SIM card"
 msgstr "Karta SIM"
+
+msgid "Modem memory"
+msgstr "Pamięć modemu"
 
 msgid "Messages store in"
 msgstr "Miejsce przechowywania wiadomości"
@@ -222,3 +225,9 @@ msgstr "Fraza w wiadomości"
 
 msgid "Command/Script to run"
 msgstr "Polecenie/Skrypt do wykonania"
+
+msgid "Message storage area"
+msgstr "Miejsce przechowywania wiadomości"
+
+msgid "Messages are stored in a specific location (for example, on the SIM card or modem memory), but other areas may also be available depending on the type of device."
+msgstr "Wiadomości przechowywane są w określonym miejscu (np. na karcie SIM lub pamięci modemu), ale w zależności od typu urządzenia mogą być dostępne także inne obszary."

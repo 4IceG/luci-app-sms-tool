@@ -7,16 +7,23 @@
 	local uci = require "luci.model.uci".cursor()
 
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
-	local sms = tostring(luci.sys.exec("sms_tool -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv 2>/dev/null"))
+
+	local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
+
+	local sms = tostring(luci.sys.exec("sms_tool -s" .. smsmem .. " -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv 2>/dev/null"))
 	local smsmer = tostring(uci:get("sms_tool", "general", "mergesms"))
 	local smscuta = string.sub (sms, 8)
 	local smscut = smscuta:sub(1, #smscuta - 2)
-	local statusb = luci.util.exec("sms_tool -s SM -d ".. devv .. " status")
-	local all = string.sub (statusb, -3)
+	local statusb = luci.util.exec("sms_tool -s" .. smsmem .. " -d ".. devv .. " status")
+	local all = string.sub (statusb, -5)
 	local location = ""
 	local l = string.sub (statusb, 15, 16)
 	if l == "SM" then
-      		location = translate("SIM Card")
+      		location = translate("SIM card")
+ 	end
+
+	if l == "ME" then
+      		location = translate("Modem memory")
  	end
 
 -%>
@@ -41,7 +48,7 @@ th, td {
 
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {background-color: #f5f5f5;}
 
 </style>
 
@@ -72,7 +79,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			var json = JSON.parse(data);
 
 			var x = <%=all%>;
-        		for (var d = 0; d < json.length; d++) {
+        		for (var d = 0; d < x; d++) {
 
             					row = table.insertRow(-1);
   						var cell1 = row.insertCell(0);
@@ -124,7 +131,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			var json = JSON.parse(data);
 
 			var x = <%=all%>;
-        		for (var d = 0; d < json.length; d++) {
+        		for (var d = 0; d < x; d++) {
 
             					row = table.insertRow(-1);
   						var cell1 = row.insertCell(0);
