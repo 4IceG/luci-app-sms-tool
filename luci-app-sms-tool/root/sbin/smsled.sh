@@ -1,11 +1,10 @@
 #!/bin/sh
-# Copyright 2020-2021 Rafał Wabik (IceG) - From eko.one.pl forum
+# Copyright 2020 Rafał Wabik (IceG) - From eko.one.pl forum
 # Licensed to the GNU General Public License v3.0.
 
 	DEV=$(uci -q get sms_tool.general.readport)
 	LEDX=$(uci -q get sms_tool.general.smsled)
-	MEM=$(uci -q get sms_tool.general.storage)
-	STX=$(sms_tool -s $MEM -d $DEV status | cut -c23-27)
+	STX=$(sms_tool -s SM -d $DEV status | cut -c23-27)
 	SMS=$(echo $STX | tr -dc '0-9')
 	SMSC=$(cat /etc/config/sms_count)
 	LEDT="/sys/class/leds/$LEDX/trigger"

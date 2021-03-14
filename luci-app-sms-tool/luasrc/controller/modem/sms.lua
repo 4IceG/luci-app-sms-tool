@@ -111,7 +111,7 @@ function slots()
 
 	local statusb = luci.util.exec("sms_tool -s" .. smsmem .. " -d ".. devv .. " status")
 	local usex = string.sub (statusb, 23, 27)
-	local max = string.sub (statusb, -5)
+	local max = string.sub (statusb, -4)
 	sim["use"] = string.match(usex, '%d+')
 	local smscount = string.match(usex, '%d+')
 	if ln == "1" then
@@ -130,7 +130,7 @@ function count_sms()
     if cursor:get("sms_tool", "general", "lednotify") == "1" then
         local devv = tostring(uci:get("sms_tool", "general", "readport"))
 
-	    local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
+	 local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
 
         local statusb = luci.util.exec("sms_tool -s" .. smsmem .. " -d ".. devv .. " status")
         local smsnum = string.sub (statusb, 23, 27)

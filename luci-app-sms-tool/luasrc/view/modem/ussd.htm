@@ -41,7 +41,7 @@
 
 	<div class="table" width="100%">
 		<div class="tr cbi-rowstyle-2">
-		<div class="td center"><div style="float: left;"><div class="ifacebadge"><a href="https://eko.one.pl/forum/viewtopic.php?id=20096">e1</a></div></div><input type="button" style="margin-left: -25px"; id="sendussd" class="btn cbi-button cbi-button-neutral" value="<%:Send Code%>" /></div>
+		<div class="td center"><div style="float: left;"><div class="ifacebadge"><a href="https://eko.one.pl/forum/viewtopic.php?id=20096">e1</a></div></div><input type="button" style="margin-left: -25px"; id="sendussd" class="cbi-button" value="<%:Send Code%>" /></div>
 		</div>
 
 	</div>
@@ -96,131 +96,131 @@ function postcmd(cmd) {
         console.log(x)
 	 	var cut = x.response;
 		if ( true == cut.includes("error: 0") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Modem failure.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Phone/Modem failure.%>"};
 		if ( true == cut.includes("error: 1") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: No connection to phone.%>"};
+        		document.getElementById("odp").innerHTML = "<%:No connection to phone.%>"};
 		if ( true == cut.includes("error: 2") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Modem adapter link reserved.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Phone/Modem adapter link reserved.%>"};
 		if ( true == cut.includes("error: 3") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Operation not allowed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Operation not allowed.%>"};
 		if ( true == cut.includes("error: 4") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Operation not supported.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Operation not supported.%>"};
 		if ( true == cut.includes("error: 5") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: PH_SIM PIN required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:PH_SIM PIN required.%>"};
 		if ( true == cut.includes("error: 6") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: PH_FSIM PIN required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:PH_FSIM PIN required.%>"};
 		if ( true == cut.includes("error: 7") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: PH_FSIM PUK required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:PH_FSIM PUK required.%>"};
 		if ( true == cut.includes("error: 10") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM not inserted.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM not inserted.%>"};
 		if ( true == cut.includes("error: 11") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM PIN required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM PIN required.%>"};
 		if ( true == cut.includes("error: 12") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM PUK required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM PUK required.%>"};
 		if ( true == cut.includes("error: 13") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM failure.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM failure.%>"};
 		if ( true == cut.includes("error: 14") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM busy.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM busy.%>"};
 		if ( true == cut.includes("error: 15") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM wrong.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM wrong.%>"};
 		if ( true == cut.includes("error: 16") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Incorrect password.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Incorrect password.%>"};
 		if ( true == cut.includes("error: 17") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM PIN2 required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM PIN2 required.%>"};
 		if ( true == cut.includes("error: 18") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM PUK2 required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM PUK2 required.%>"};
 		if ( true == cut.includes("error: 20") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Memory full.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Memory full.%>"};
 		if ( true == cut.includes("error: 21") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Invalid index.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Invalid index.%>"};
 		if ( true == cut.includes("error: 22") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Not found.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Not found.%>"};
 		if ( true == cut.includes("error: 23") ) {
         		document.getElementById("odp").innerHTML = "<%:Memory failure.%>"};
 		if ( true == cut.includes("error: 24") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Text string too long.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Text string too long.%>"};
 		if ( true == cut.includes("error: 25") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Invalid characters in text string.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Invalid characters in text string.%>"};
 		if ( true == cut.includes("error: 26") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Dial string too long.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Dial string too long.%>"};
 		if ( true == cut.includes("error: 27") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Invalid characters in dial string.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Invalid characters in dial string.%>"};
 		if ( true == cut.includes("error: 30") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: No network service.%>"};
+        		document.getElementById("odp").innerHTML = "<%:No network service.%>"};
 		if ( true == cut.includes("error: 31") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Network timeout.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Network timeout.%>"};
 		if ( true == cut.includes("error: 32") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Network not allowed, emergency calls only.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Network not allowed, emergency calls only.%>"};
 		if ( true == cut.includes("error: 40") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Network personalization PIN required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Network personalization PIN required.%>"};
 		if ( true == cut.includes("error: 41") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Network personalization PUK required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Network personalization PUK required.%>"};
 		if ( true == cut.includes("error: 42") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Network subset personalization PIN required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Network subset personalization PIN required.%>"};
 		if ( true == cut.includes("error: 43") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Network subset personalization PUK required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Network subset personalization PUK required.%>"};
 		if ( true == cut.includes("error: 44") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Service provider personalization PIN required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Service provider personalization PIN required.%>"};
 		if ( true == cut.includes("error: 45") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Service provider personalization PUK required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Service provider personalization PUK required.%>"};
 		if ( true == cut.includes("error: 46") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Corporate personalization PIN required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Corporate personalization PIN required.%>"};
 		if ( true == cut.includes("error: 47") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Corporate personalization PUK required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Corporate personalization PUK required.%>"};
 		if ( true == cut.includes("error: 48") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: PH-SIM PUK required.%>"};
+        		document.getElementById("odp").innerHTML = "<%:PH-SIM PUK required.%>"};
 		if ( true == cut.includes("error: 100") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Unknown error.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Unknown error.%>"};
 		if ( true == cut.includes("error: 103") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Illegal MS.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Illegal MS.%>"};
 		if ( true == cut.includes("error: 106") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Illegal ME.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Illegal ME.%>"};
 		if ( true == cut.includes("error: 107") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: GPRS services not allowed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:GPRS services not allowed.%>"};
 		if ( true == cut.includes("error: 111") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: PLMN not allowed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:PLMN not allowed.%>"};
 		if ( true == cut.includes("error: 112") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Location area not allowed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Location area not allowed.%>"};
 		if ( true == cut.includes("error: 113") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Roaming not allowed in this location area.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Roaming not allowed in this location area.%>"};
 		if ( true == cut.includes("error: 126") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Operation temporary not allowed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Operation temporary not allowed.%>"};
 		if ( true == cut.includes("error: 132") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Service operation not supported.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Service operation not supported.%>"};
 		if ( true == cut.includes("error: 133") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Requested service option not subscribed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Requested service option not subscribed.%>"};
 		if ( true == cut.includes("error: 134") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Service option temporary out of order.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Service option temporary out of order.%>"};
 		if ( true == cut.includes("error: 148") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Unspecified GPRS error.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Unspecified GPRS error.%>"};
 		if ( true == cut.includes("error: 149") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: PDP authentication failure.%>"};
+        		document.getElementById("odp").innerHTML = "<%:PDP authentication failure.%>"};
 		if ( true == cut.includes("error: 150") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Invalid mobile class.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Invalid mobile class.%>"};
 		if ( true == cut.includes("error: 256") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Operation temporarily not allowed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Operation temporarily not allowed.%>"};
 		if ( true == cut.includes("error: 257") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Call barred.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Call barred.%>"};
 		if ( true == cut.includes("error: 258") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Modem is busy.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Phone/Modem is busy.%>"};
 		if ( true == cut.includes("error: 259") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: User abort.%>"};
+        		document.getElementById("odp").innerHTML = "<%:User abort.%>"};
 		if ( true == cut.includes("error: 260") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Invalid dial string.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Invalid dial string.%>"};
 		if ( true == cut.includes("error: 261") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SS not executed.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SS not executed.%>"};
 		if ( true == cut.includes("error: 262") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM Blocked.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM Blocked.%>"};
 		if ( true == cut.includes("error: 263") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Invalid block.%>"};
+        		document.getElementById("odp").innerHTML = "<%:Invalid block.%>"};
 		if ( true == cut.includes("error: 527") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Please wait, and retry your selection later (Specific Modem Sierra).%>"};
+        		document.getElementById("odp").innerHTML = "<%:Please wait, and retry your selection later (Specific Modem Sierra).%>"};
 		if ( true == cut.includes("error: 528") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Location update failure – emergency calls only (Specific Modem Sierra).%>"};
+        		document.getElementById("odp").innerHTML = "<%:Location update failure – emergency calls only (Specific Modem Sierra).%>"};
 		if ( true == cut.includes("error: 529") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: Selection failure – emergency calls only (Specific Modem Sierra).%>"};
+        		document.getElementById("odp").innerHTML = "<%:Selection failure – emergency calls only (Specific Modem Sierra).%>"};
 		if ( true == cut.includes("error: 772") ) {
-        		document.getElementById("odp").innerHTML = "<%:Error: SIM powered down.%>"};
+        		document.getElementById("odp").innerHTML = "<%:SIM powered down.%>"};
 		if ( true != cut.includes("error: ") ) {
         		document.getElementById("odp").innerHTML = x.response};
 

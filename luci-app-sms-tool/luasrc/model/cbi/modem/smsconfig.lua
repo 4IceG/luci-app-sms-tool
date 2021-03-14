@@ -39,10 +39,15 @@ local smscount = string.match(smsnum, '%d+')
 m = Map("sms_tool", translate("Configuration sms-tool"),
 	translate("Configuration panel for sms_tool and gui application."))
 
-s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("SMS Settings"))
+s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate(""))
 s.anonymous = true
+s:tab("sms", translate("SMS Settings"))
+s:tab("ussd", translate("USSD Codes Settings"))
+s:tab("info", translate("Notification Settings"))
 
-dev1 = s:option(Value, "readport", translate("SMS Reading Port"))
+this_tab = "sms"
+
+dev1 = s:taboption(this_tab, Value, "readport", translate("SMS Reading Port"))
 if try_devices1 then
 local node
 for node in try_devices1 do
@@ -50,16 +55,16 @@ dev1:value(node, node)
 end
 end
 
-mem = s:option(ListValue, "storage", translate("Message storage area"), translate("Messages are stored in a specific location (for example, on the SIM card or modem memory), but other areas may also be available depending on the type of device."))
+mem = s:taboption(this_tab, ListValue, "storage", translate("Message storage area"), translate("Messages are stored in a specific location (for example, on the SIM card or modem memory), but other areas may also be available depending on the type of device."))
 mem.default = "SM"
 mem:value("SM", translate("SIM card"))
 mem:value("ME", translate("Modem memory"))
 mem.rmempty = true
 
-local msm = s:option(Flag, "mergesms", translate("Merge split messages"), translate("Checking this option will make it easier to read the messages, but it will cause a discrepancy in the number of messages shown and received."))
+local msm = s:taboption(this_tab, Flag, "mergesms", translate("Merge split messages"), translate("Checking this option will make it easier to read the messages, but it will cause a discrepancy in the number of messages shown and received."))
 msm.rmempty = false
 
-dev2 = s:option(Value, "sendport", translate("SMS Sending Port"))
+dev2 = s:taboption(this_tab, Value, "sendport", translate("SMS Sending Port"))
 if try_devices2 then
 local node
 for node in try_devices2 do
@@ -67,8 +72,18 @@ dev2:value(node, node)
 end
 end
 
+local t = s:taboption(this_tab, Value, "pnumber", translate("Prefix Number"), translate("The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."))
+t.rmempty = true
+t.default = 48
 
-local ta = s:option(TextValue, "user_phonebook", translate("User Phonebook"), translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
+local f = s:taboption(this_tab, Flag, "prefix", translate("Add Prefix to Phone Number"), translate("Automatically add prefix to the phone number field."))
+f.rmempty = false
+
+
+local i = s:taboption(this_tab, Flag, "information", translate("Explanation of number and prefix"), translate("Display a window to remind you of the correct phone number and prefix."))
+i.rmempty = false
+
+local ta = s:taboption(this_tab, TextValue, "user_phonebook", translate("User Phonebook"), translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
 ta.rows = 7
 ta.rmempty = false
 
@@ -81,22 +96,9 @@ function ta.write(self, section, value)
     		fs.writefile(PHB_FILE_PATH, value)
 end
 
-local t = s:option(Value, "pnumber", translate("Prefix Number"), translate("The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."))
-t.rmempty = true
-t.default = 48
+this_taba = "ussd"
 
-local f = s:option(Flag, "prefix", translate("Add Prefix to Phone Number"), translate("Automatically add prefix to the phone number field."))
-f.rmempty = false
-
-
-local i = s:option(Flag, "information", translate("Explanation of number and prefix"), translate("Display a window to remind you of the correct phone number and prefix."))
-i.rmempty = false
-
-
-s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("USSD Codes Settings"))
-s.anonymous = true
-
-dev3 = s:option(Value, "ussdport", translate("USSD Sending Port"))
+dev3 = s:taboption(this_taba, Value, "ussdport", translate("USSD Sending Port"))
 if try_devices3 then
 local node
 for node in try_devices3 do
@@ -104,13 +106,13 @@ dev3:value(node, node)
 end
 end
 
-local u = s:option(Flag, "ussd", translate("Sending USSD Code in plain text"), translate("Send the USSD code in plain text. Command is not being coded to the PDU."))
+local u = s:taboption(this_taba, Flag, "ussd", translate("Sending USSD Code in plain text"), translate("Send the USSD code in plain text. Command is not being coded to the PDU."))
 u.rmempty = false
 
-local p = s:option(Flag, "pdu", translate("Receive message without PDU decoding"), translate("Receive and display the message without decoding it as a PDU."))
+local p = s:taboption(this_taba, Flag, "pdu", translate("Receive message without PDU decoding"), translate("Receive and display the message without decoding it as a PDU."))
 p.rmempty = false
 
-local tb = s:option(TextValue, "user_ussd", translate("User USSD Codes"), translate("Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."))
+local tb = s:taboption(this_taba, TextValue, "user_ussd", translate("User USSD Codes"), translate("Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."))
 tb.rows = 7
 tb.rmempty = true
 
@@ -123,11 +125,9 @@ function tb.write(self, section, value)
     		fs.writefile(USSD_FILE_PATH, value)
 end
 
+this_tabb = "info"
 
-s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translate("Notification Settings"))
-s.anonymous = true
-
-local uw = s:option(Flag, "lednotify", translate("Notify new messages"), translate("The LED informs about a new message. Before activating this function, please config and save the SMS reading port, time to check SMS inbox and select the notification LED."))
+local uw = s:taboption(this_tabb, Flag, "lednotify", translate("Notify new messages"), translate("The LED informs about a new message. Before activating this function, please config and save the SMS reading port, time to check SMS inbox and select the notification LED."))
 uw.rmempty = false
 
 
@@ -149,7 +149,7 @@ end
 end
 
 
-local time = s:option(Value, "checktime", translate("Check inbox every minute(s)"), translate("Specify how many minutes you want your inbox to be checked."))
+local time = s:taboption(this_tabb, Value, "checktime", translate("Check inbox every minute(s)"), translate("Specify how many minutes you want your inbox to be checked."))
 time.rmempty = false
 time.maxlength = 2
 time.default = 5
@@ -161,7 +161,7 @@ function time.validate(self, value)
 end
 
 
-leds = s:option(Value, "smsled", translate("Notification LED"), translate("Select the notification LED."))
+leds = s:taboption(this_tabb, Value, "smsled", translate("Notification LED"), translate("Select the notification LED."))
 if try_leds then
 local node
 local status
@@ -172,12 +172,12 @@ leds:value(all, all)
 end
 end
 
-local timeon = s:option(Value, "ledtimeon", translate("Turn on the LED for seconds(s)"), translate("Specify for how long the LED should be on."))
+local timeon = s:taboption(this_tabb, Value, "ledtimeon", translate("Turn on the LED for seconds(s)"), translate("Specify for how long the LED should be on."))
 timeon.rmempty = false
 timeon.maxlength = 3
 timeon.default = 1
 
-local timeoff = s:option(Value, "ledtimeoff", translate("Turn off the LED for seconds(s)"), translate("Specify for how long the LED should be off."))
+local timeoff = s:taboption(this_tabb, Value, "ledtimeoff", translate("Turn off the LED for seconds(s)"), translate("Specify for how long the LED should be off."))
 timeoff.rmempty = false
 timeoff.maxlength = 3
 timeoff.default = 5
