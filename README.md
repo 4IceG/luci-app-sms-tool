@@ -33,19 +33,21 @@ opkg install luci-app-sms-tool_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/sms_readsms1.8.3.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLreadsms.png)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/sms_sendsms1.8.1.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsendsms.png)
 
 - "USSD" window / Okno kodów USSD:
 
-![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/sms_ussd1.8.1.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLussdb.png)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/4IceG/luci-app-sms-tool/master/screenshots/sms_smsconfig1.8.4.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsmsconfig.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsmsconfig2.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsmsconfig3.png)
 
 
 ## Thanks to / Podziękowania
