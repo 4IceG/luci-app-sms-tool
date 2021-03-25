@@ -1,0 +1,3 @@
+To change the look of the table with sms, replace the readsms.htm file in the given location:
+
+luci-app-sms-tool/luasrc/view/modem
