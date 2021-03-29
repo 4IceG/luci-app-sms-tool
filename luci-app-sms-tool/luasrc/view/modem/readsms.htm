@@ -48,7 +48,7 @@ th, td {
 
 }
 
-tr:nth-child(even) {background-color: #f5f5f5;}
+tr:nth-child(odd) {background-color: #f5f5f5;}
 
 </style>
 
@@ -79,7 +79,7 @@ tr:nth-child(even) {background-color: #f5f5f5;}
 			var json = JSON.parse(data);
 
 			var x = <%=all%>;
-        		for (var d = 0; d < x; d++) {
+        		for (var d = 0; d < json.length; d++) {
 
             					row = table.insertRow(-1);
   						var cell1 = row.insertCell(0);
@@ -131,7 +131,7 @@ tr:nth-child(even) {background-color: #f5f5f5;}
 			var json = JSON.parse(data);
 
 			var x = <%=all%>;
-        		for (var d = 0; d < x; d++) {
+        		for (var d = 0; d < json.length; d++) {
 
             					row = table.insertRow(-1);
   						var cell1 = row.insertCell(0);
