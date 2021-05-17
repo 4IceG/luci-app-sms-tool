@@ -23,32 +23,33 @@ opkg install kmod-usb-serial kmod-usb-serial-option luci-compat
 opkg install sms-tool_2021-02-16-55e5946f-1_XXXXXX.ipk
 
 #Install gui.
-opkg install luci-app-sms-tool_1.8.7_all.ipk
+opkg install luci-app-sms-tool_1.8.8_all.ipk
 ```
 
 ## Screenshots / Zrzuty ekranu
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLreadsms.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_readsms.png)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsendsms.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_sendsms.png)
 
-- "USSD" window / Okno kodów USSD:
+- "USSD Codes" window / Okno kodów USSD:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLussdb.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_ussd.png)
+
+- "AT Command" window / Okno poleceń AT:
+
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_atcommands.png)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsmsconfig.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsmsconfig2.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.5PLsmsconfig3.png)
-
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig1.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig2.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig3.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig4.png)
 
 ## Thanks to / Podziękowania
-- [luci-app-smstool](https://github.com/lzto/luci-app-smstool)
-- [sms_tool](https://eko.one.pl/?p=openwrt-sms_tool)
-- [koshev-msk](https://github.com/koshev-msk)
 - [eko.one.pl](https://eko.one.pl/forum/viewtopic.php?id=20096)
