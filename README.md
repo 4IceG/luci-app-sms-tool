@@ -20,7 +20,7 @@ Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sm
 opkg install kmod-usb-serial kmod-usb-serial-option luci-compat
 
 #Install sms-tool.
-opkg install sms-tool_2021-02-16-55e5946f-1_XXXXXX.ipk
+opkg install sms-tool_2021-05-07-e9efc352-1_XXXXXX.ipk
 
 #Install gui.
 opkg install luci-app-sms-tool_1.8.8_all.ipk
