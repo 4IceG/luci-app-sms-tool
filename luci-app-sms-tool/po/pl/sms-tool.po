@@ -62,7 +62,7 @@ msgid "Configuration sms-tool"
 msgstr "Konfiguracja sms-tool"
 
 msgid "Configuration panel for sms_tool and gui application."
-msgstr "Panel ustawień dla aplikacji sms_tool oraz dla interfejsu użutkownika."
+msgstr "Panel ustawień dla aplikacji sms_tool oraz dla interfejsu użytkownika."
 
 msgid "Device"
 msgstr "Urządzenie"
@@ -91,8 +91,8 @@ msgstr "Usuń wybraną"
 msgid "Delete All"
 msgstr "Usuń wszystkie"
 
-msgid "USSD"
-msgstr "USSD"
+msgid "USSD Codes"
+msgstr "Kody USSD"
 
 msgid "Send to"
 msgstr "Wyślij do"
@@ -154,8 +154,8 @@ msgstr "Odebrana wiadomość wyświetlana jest bez dekodowania jej jako PDU."
 msgid "Explanation of number and prefix"
 msgstr "Wyjaśnienie dot. numeru i prefiksu"
 
-msgid "Display a window to remind you of the correct phone number and prefix."
-msgstr "Wyświetlaj okno przypominające o poprawności numeru telefonu i prefiksie."
+msgid "In the tab for sending SMSes, show an explanation of the prefix and the correct phone number."
+msgstr "W zakładce umożliwiającej wysyłanie SMS-ów pokaż wyjaśnienie dotyczące prefiksu i poprawnego numeru telefonu."
 
 msgid "The phone number should be preceded by the country prefix (for Poland it is 48, without '+'). If the number is 5, 4 or 3 characters, it is treated as 'short' and should not be preceded by a country prefix."
 msgstr "Numer telefonu należy poprzedzić prefiksem kraju (dla Polski jest to 48, bez znaku '+'). Jeżeli numer jest 5, 4 lub 3 znakowy to jest on traktowany jako 'krótki' i nie należy go poprzedzać prefiksem kraju."
@@ -170,7 +170,7 @@ msgid "User Phonebook"
 msgstr "Kontakty użytkownika"
 
 msgid "User USSD Codes"
-msgstr "Kody użytkownika"
+msgstr "Kody USSD użytkownika"
 
 msgid "Each line must have the following format: 'Code name;Code'. Save to file '/etc/config/ussd.user'."
 msgstr "Każda linijka powinna mieć następujący format: 'Etykieta kodu;Kod'. Dla wygody kody użytkownika zapisywane są w pliku '/etc/config/ussd.user'."
@@ -231,3 +231,33 @@ msgstr "Miejsce przechowywania wiadomości"
 
 msgid "Messages are stored in a specific location (for example, on the SIM card or modem memory), but other areas may also be available depending on the type of device."
 msgstr "Wiadomości przechowywane są w określonym miejscu (np. na karcie SIM lub pamięci modemu), ale w zależności od typu urządzenia mogą być dostępne także inne obszary."
+
+msgid "AT Commands"
+msgstr "Polecenia AT"
+
+msgid "Web UI for handling AT commands via sms_tool."
+msgstr "Interfejs użytkownika dla sms_tool do obsługi poleceń AT."
+
+msgid "Sending commands to modem"
+msgstr "Wysyłanie poleceń do modemu"
+
+msgid "User AT Commands"
+msgstr "Polecenia AT użytkownika"
+
+msgid "Command to send"
+msgstr "Polecenie do wysłania"
+
+msgid "Please enter a AT Command"
+msgstr "Proszę podać polecenie AT do wysłania"
+
+msgid "AT Commands Sending Port"
+msgstr "Port do wysyłania poleceń AT"
+
+msgid "Send Command"
+msgstr "Wyślij polecenie"
+
+msgid "AT Commands Settings"
+msgstr "Ustawienia dla poleceń AT"
+
+msgid "Each line must have the following format: 'AT Command name;AT Command'. Save to file '/etc/config/atcmds.user'."
+msgstr "Każda linijka powinna mieć następujący format: 'Etykieta polecenia;polecenie AT'. Dla wygody polecenia użytkownika zapisywane są w pliku '/etc/config/atcmds.user'."

@@ -19,5 +19,6 @@ if [ $work != false ]; then
 uci set sms_tool.general.readport=$work
 uci set sms_tool.general.sendport=$work
 uci set sms_tool.general.ussdport=$work
+uci set sms_tool.general.atport=$work
 uci commit sms_tool
 fi

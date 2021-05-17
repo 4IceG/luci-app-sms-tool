@@ -1,4 +1,4 @@
--- Copyright 2020-2021 RafaÅ‚ Wabik (IceG) - From eko.one.pl forum
+-- Copyright 2020-2021 Rafa³ Wabik (IceG) - From eko.one.pl forum
 -- Licensed to the GNU General Public License v3.0.
 
 
@@ -18,15 +18,18 @@ function index()
 	entry({"admin", "modem", "sms"}, alias("admin", "modem", "sms", "readsms"), translate("SMS Messages"), 20).acl_depends={ "luci-app-sms-tool" }
 	entry({"admin", "modem", "sms", "readsms"},template("modem/readsms"),translate("Received Messages"), 10)
  	entry({"admin", "modem", "sms", "sendsms"},template("modem/sendsms"),translate("Send Messages"), 20)
- 	entry({"admin", "modem", "sms", "ussd"},template("modem/ussd"),translate("USSD"), 30)
-	entry({"admin", "modem", "sms", "smsconfig"},cbi("modem/smsconfig"),translate("Configuration"), 40)
+ 	entry({"admin", "modem", "sms", "ussd"},template("modem/ussd"),translate("USSD Codes"), 30)
+	entry({"admin", "modem", "sms", "atcommands"},template("modem/atcommands"),translate("AT Commands"), 40)
+	entry({"admin", "modem", "sms", "smsconfig"},cbi("modem/smsconfig"),translate("Configuration"), 50)
 	entry({"admin", "modem", "sms", "delete_one"}, call("delete_sms", smsindex), nil).leaf = true
 	entry({"admin", "modem", "sms", "delete_all"}, call("delete_all_sms"), nil).leaf = true
 	entry({"admin", "modem", "sms", "run_ussd"}, call("ussd"), nil).leaf = true
+	entry({"admin", "modem", "sms", "run_at"}, call("at"), nil).leaf = true
 	entry({"admin", "modem", "sms", "run_sms"}, call("sms"), nil).leaf = true
 	entry({"admin", "modem", "sms", "readsim"}, call("slots"), nil).leaf = true
 	entry({"admin", "modem", "sms", "countsms"}, call("count_sms"), nil).leaf = true
 	entry({"admin", "modem", "sms", "user_ussd"}, call("userussd"), nil).leaf = true
+	entry({"admin", "modem", "sms", "user_atc"}, call("useratc"), nil).leaf = true
 	entry({"admin", "modem", "sms", "user_phonebook"}, call("userphb"), nil).leaf = true
 end
 
@@ -73,6 +76,21 @@ function ussd()
     local ussd_code = http.formvalue("code")
     if ussd_code then
 	    local odpall = io.popen("sms_tool -d " .. devv .. ussd .. pdu .. " ussd " .. ussd_code .." 2>&1")
+	    local odp =  odpall:read("*a")
+	    odpall:close()
+        http.write(tostring(odp))
+    else
+        http.write_json(http.formvalue())
+    end
+end
+
+
+function at()
+    local devv = tostring(uci:get("sms_tool", "general", "atport"))
+
+    local at_code = http.formvalue("code")
+    if at_code then
+	    local odpall = io.popen("sms_tool -d " .. devv .. " at "  ..at_code:gsub("[$]", "\\\$"):gsub("\"", "\\\"").." 2>&1")
 	    local odp =  odpall:read("*a")
 	    odpall:close()
         http.write(tostring(odp))
@@ -165,6 +183,34 @@ function userussd()
 	luci.http.prepare_content("application/json")
 	luci.http.write_json(usd)
 end
+
+
+function uat(rv)
+	local c = nixio.fs.access("/etc/config/atcmds.user") and
+		io.popen("cat /etc/config/atcmds.user")
+
+	if c then
+		for l in c:lines() do
+			local i = l
+			if i then
+				rv[#rv + 1] = {
+					atu = i
+				}
+			end
+		end
+		c:close()
+	end
+end
+
+
+
+function useratc()
+	local atu = { }
+	uat(atu)
+	luci.http.prepare_content("application/json")
+	luci.http.write_json(atu)
+end
+
 
 
 function uphb(rv)

@@ -13,16 +13,18 @@ local uci = require "luci.model.uci".cursor()
 local USSD_FILE_PATH = "/etc/config/ussd.user"
 local PHB_FILE_PATH = "/etc/config/phonebook.user"
 local SMSC_FILE_PATH = "/etc/config/smscommands.user"
+local AT_FILE_PATH = "/etc/config/atcmds.user"
 
 local led = tostring(uci:get("sms_tool", "general", "smsled"))
 local ledtime = tostring(uci:get("sms_tool", "general", "checktime"))
 
 local m
 local s
-local dev1, dev2, dev3, leds
-local try_devices1 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM*") or nixio.fs.glob("/dev/cdc*")
-local try_devices2 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM*") or nixio.fs.glob("/dev/cdc*")
-local try_devices3 = nixio.fs.glob("/dev/ttyUSB*") or nixio.fs.glob("/dev/ttyACM*") or nixio.fs.glob("/dev/cdc*")
+local dev1, dev2, dev3, dev4, leds
+local try_devices1 = nixio.fs.glob("/dev/tty[A-Z][A-Z]*")
+local try_devices2 = nixio.fs.glob("/dev/tty[A-Z][A-Z]*")
+local try_devices3 = nixio.fs.glob("/dev/tty[A-Z][A-Z]*")
+local try_devices4 = nixio.fs.glob("/dev/tty[A-Z][A-Z]*")
 local try_leds = nixio.fs.glob("/sys/class/leds/*")
 
 
@@ -43,6 +45,7 @@ s = m:section(NamedSection, 'general' , "sms_tool" , "<p>&nbsp;</p>" .. translat
 s.anonymous = true
 s:tab("sms", translate("SMS Settings"))
 s:tab("ussd", translate("USSD Codes Settings"))
+s:tab("at", translate("AT Commands Settings"))
 s:tab("info", translate("Notification Settings"))
 
 this_tab = "sms"
@@ -80,7 +83,7 @@ local f = s:taboption(this_tab, Flag, "prefix", translate("Add Prefix to Phone N
 f.rmempty = false
 
 
-local i = s:taboption(this_tab, Flag, "information", translate("Explanation of number and prefix"), translate("Display a window to remind you of the correct phone number and prefix."))
+local i = s:taboption(this_tab, Flag, "information", translate("Explanation of number and prefix"), translate("In the tab for sending SMSes, show an explanation of the prefix and the correct phone number."))
 i.rmempty = false
 
 local ta = s:taboption(this_tab, TextValue, "user_phonebook", translate("User Phonebook"), translate("Each line must have the following format: 'Contact name;Phone number'. Save to file '/etc/config/phonebook.user'."))
@@ -123,6 +126,29 @@ end
 function tb.write(self, section, value)
     		value = value:gsub("\r\n", "\n")
     		fs.writefile(USSD_FILE_PATH, value)
+end
+
+this_tabc = "at"
+
+dev4 = s:taboption(this_tabc, Value, "atport", translate("AT Commands Sending Port"))
+if try_devices4 then
+local node
+for node in try_devices4 do
+dev4:value(node, node)
+end
+end
+
+local tat = s:taboption(this_tabc, TextValue, "user_at", translate("User AT Commands"), translate("Each line must have the following format: 'AT Command name;AT Command'. Save to file '/etc/config/atcmds.user'."))
+tat.rows = 20
+tat.rmempty = true
+
+function tat.cfgvalue(self, section)
+    return fs.readfile(AT_FILE_PATH)
+end
+
+function tat.write(self, section, value)
+    		value = value:gsub("\r\n", "\n")
+    		fs.writefile(AT_FILE_PATH, value)
 end
 
 this_tabb = "info"

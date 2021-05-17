@@ -10,6 +10,11 @@
 
 <%+header%>
 
+<!--
+-- Copyright 2020-2021 Rafał Wabik (IceG) - From eko.one.pl forum
+-- Licensed to the GNU General Public License v3.0.
+-->
+
 <style>
 
 textarea {
@@ -166,6 +171,14 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 			document.getElementById('counter').innerHTML = "160";
 		    delsms.value = "";
 		    delnum.value = "";
+
+		var on = <%=pon%>;
+		var pfixnum = document.getElementById("numer");
+		if ( on == "1" ) {
+		var phn2 = <%=pnumber%>;
+		pfixnum.value = phn2;
+		}
+
         	return true;
         });
     }, true);
@@ -183,29 +196,29 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 	<div class="table" width="100%">
 
 		<div class="tr">
-			<div class="td left" style="width:15%;"><%:User Phonebook%>:</div>
-			<div class="td left" style="width:41%;">
+			<div class="td left" style="width:25%;"><%:User Phonebook%>:</div>
+			<div class="td left" style="width:50%;">
 
 				<select name="ussd" id="pb" onchange="copyFunction2()">
 
  				</select>
 </div>
-			<div class="td left" style="width:41%;"></div>
+			<div class="td left" style="width:0%;"></div>
 		</div>
 
 		<div class="tr">
-			<div class="td left" style="width:15%;"><%:Send to%>:</div>
-			<div class="td left" style="width:41%;"><input type="text" id="numer" onKeyUp="codsp()" placeholder="<%:PHONE_NUMBER%>" required minlength="3" maxlength="24" size="11"></div>
-			<div class="td left" style="width:41%;"></div>
+			<div class="td left" style="width:25%;"><%:Send to%>:</div>
+			<div class="td left" style="width:50%;"><input type="text" id="numer" onKeyUp="codsp()" placeholder="<%:PHONE_NUMBER%>" required minlength="3" maxlength="24" size="11"></div>
+			<div class="td left" style="width:0%;"></div>
 		</div>
 		<div class="tr">
-			<div class="td left" style="width:15%;"><%:Message text%>:</div>
-			<div class="td left" style="width:41%;"><textarea id="smstxt" onKeyUp="count_replace(this)" required></textarea><div id="counter">160</div></div>
-			<div class="td left" style="width:41%;"></div>
+			<div class="td left" style="width:25%;"><%:Message text%>:</div>
+			<div class="td left" style="width:50%;"><textarea id="smstxt" onKeyUp="count_replace(this)" required></textarea><div id="counter">160</div></div>
+			<div class="td left" style="width:0%;"></div>
 		</div>
 			
 		<div class="tr">
-			<div class="td left" width="15%"><%:Status%>:</div><div class="td left" id="odp"></div>
+			<div class="td left" width="25%"><%:Status%>:</div><div class="td left" id="odp"></div>
 
 		</div>
 
@@ -213,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function (ev) {var button = docume
 	<div class="table" width="100%">
 
 		<div class="tr cbi-rowstyle-2">
-		<div class="td center"><div style="float: left;"><div class="ifacebadge"><a href="https://eko.one.pl/forum/viewtopic.php?id=20096">e1</a></div></div><input type="button" style="margin-left: -25px"; id="sendsms" class="cbi-button" value="<%:Send Message%>" /></div>
+		<div class="td center"><div style="float: left;"><div class="ifacebadge"><a href="https://eko.one.pl/forum/viewtopic.php?id=20096">e1</a></div></div><input type="button" style="margin-left: 35%"; id="sendsms" class="btn cbi-button cbi-button-neutral" value="<%:Send Message%>" /></div>
 		</div>
 
 	</div>
