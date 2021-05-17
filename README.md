@@ -12,7 +12,7 @@ Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sm
 
 ### Preview and quick configuration (modem Quectel EM160R-GL) / Podgląd oraz szybka konfiguracja (modem Quectel EM160R-GL)
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/sms_config_1.8.5.gif)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8demo.gif)
 
 ## Installation / Instalacja
 ``` bash
