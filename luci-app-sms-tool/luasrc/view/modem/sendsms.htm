@@ -89,8 +89,9 @@ XHR.get('<%=luci.dispatcher.build_url("admin", "modem", "sms", "user_phonebook")
 
 function copyFunction2() {
 
-  	   var x = document.getElementById("pb").value;
-       document.getElementById("numer").value = x;
+ 	var x = document.getElementById("pb").value;
+     	document.getElementById("numer").value = x;
+     	document.getElementById("odp").innerHTML = "";
 
 
 }

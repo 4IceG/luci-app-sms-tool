@@ -49,7 +49,7 @@ msgstr "Odpowiedź"
 msgid "SMS sent sucessfully"
 msgstr "SMS został wysłany"
 
-msgid "Please enter a ussd code"
+msgid "Please enter a USSD code"
 msgstr "Proszę podać kod do wysłania"
 
 msgid "Delete selected message?"
@@ -68,10 +68,10 @@ msgid "Device"
 msgstr "Urządzenie"
 
 msgid "Web UI for handling messages via sms_tool."
-msgstr "Interfejs użytkownika dla sms_tool do obsługi wiadomości sms."
+msgstr "Interfejs użytkownika dla sms_tool do obsługi wiadomości SMS."
 
-msgid "Web UI for handling ussd codes via sms_tool."
-msgstr "Interfejs użytkownika dla sms_tool do obsługi kodów ussd."
+msgid "Web UI for handling USSD codes via sms_tool."
+msgstr "Interfejs użytkownika dla sms_tool do obsługi kodów USSD."
 
 msgid "SIM card"
 msgstr "Karta SIM"
@@ -101,7 +101,7 @@ msgid "Message text"
 msgstr "Treść wiadomości"
 
 msgid "Send Message"
-msgstr "Wyślij sms"
+msgstr "Wyślij SMS"
 
 msgid "Code to send"
 msgstr "Kod do wysłania"
@@ -212,19 +212,7 @@ msgid "Merge split messages"
 msgstr "Połącz podzielone wiadomości"
 
 msgid "Checking this option will make it easier to read the messages, but it will cause a discrepancy in the number of messages shown and received."
-msgstr "Podzielone wiadomości zostaną złączone. Zaznaczenie tej opcji ułatwi czytanie sms-ów, ale spowoduje niezgodność w ilości pokazanych, odebranych wiadomości."
-
-msgid "SMS Commands"
-msgstr "Polecenia SMS"
-
-msgid "Phone number"
-msgstr "Numer telefonu"
-
-msgid "SMS Text"
-msgstr "Fraza w wiadomości"
-
-msgid "Command/Script to run"
-msgstr "Polecenie/Skrypt do wykonania"
+msgstr "Podzielone wiadomości zostaną złączone. Zaznaczenie tej opcji ułatwi czytanie SMS-ów, ale spowoduje niezgodność w ilości pokazanych, odebranych wiadomości."
 
 msgid "Message storage area"
 msgstr "Miejsce przechowywania wiadomości"
