@@ -12,7 +12,7 @@ Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sm
 
 ### Preview and quick configuration (modem Quectel EM160R-GL) / Podgląd oraz szybka konfiguracja (modem Quectel EM160R-GL)
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8demo.gif)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8F.gif)
 
 ## Installation / Instalacja
 ``` bash
@@ -30,26 +30,26 @@ opkg install luci-app-sms-tool_1.8.8_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_readsms.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLreadsms.png)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_sendsms.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsendsms.png)
 
 - "USSD Codes" window / Okno kodów USSD:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_ussd.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLussd.png)
 
-- "AT Command" window / Okno poleceń AT:
+- "AT Commands" window / Okno poleceń AT:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_atcommands.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLatcommandz.png)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig1.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig2.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig3.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8/1.8.8PL_smsconfig4.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(1).png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(2).png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(3).png)
 
 ## Thanks to / Podziękowania
 - [eko.one.pl](https://eko.one.pl/forum/viewtopic.php?id=20096)
