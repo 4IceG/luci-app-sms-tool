@@ -49,7 +49,7 @@ opkg install luci-app-sms-tool_1.8.8_all.ipk
 ![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig.png)
 ![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(1).png)
 ![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(2).png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(3).png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.9FPLsmsconfig%20(3).png)
 
 ## Thanks to / Podziękowania
 - [eko.one.pl](https://eko.one.pl/forum/viewtopic.php?id=20096)
