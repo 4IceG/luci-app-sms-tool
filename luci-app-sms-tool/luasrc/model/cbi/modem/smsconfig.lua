@@ -1,4 +1,4 @@
--- Copyright 2020-2021 RafaÅ‚ Wabik (IceG) - From eko.one.pl forum
+-- Copyright 2020-2021 Rafa³ Wabik (IceG) - From eko.one.pl forum
 -- Licensed to the GNU General Public License v3.0.
 
 local util = require "luci.util"
@@ -156,24 +156,25 @@ this_tabb = "info"
 local uw = s:taboption(this_tabb, Flag, "lednotify", translate("Notify new messages"), translate("The LED informs about a new message. Before activating this function, please config and save the SMS reading port, time to check SMS inbox and select the notification LED."))
 uw.rmempty = false
 
-
 function uw.write(self, section, value)
 if devv ~= nil or devv ~= '' then
 if ( smscount ~= nil and led ~= nil ) then
     if value == '1' then
 
         luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
-	    luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/etc/init.d/smsled enable;/etc/init.d/smsled start")
+	luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/etc/init.d/smsled enable;/etc/init.d/smsled start")
+	luci.sys.call("/sbin/cronsync.sh")
 
     elseif value == '0' then
-       luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/etc/init.d/smsled stop;/etc/init.d/smsled disable")
-	   luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+       	luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/etc/init.d/smsled stop;/etc/init.d/smsled disable")
+	luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+	luci.sys.call("/sbin/cronsync.sh")
+
     end
 return Flag.write(self, section ,value)
   end
 end
 end
-
 
 local time = s:taboption(this_tabb, Value, "checktime", translate("Check inbox every minute(s)"), translate("Specify how many minutes you want your inbox to be checked."))
 time.rmempty = false
@@ -185,6 +186,14 @@ function time.validate(self, value)
 	return value
 	end
 end
+
+sync = s:taboption(this_tabb, ListValue, "prestart", translate("Restart the inbox checking process every"), translate("The process will restart at the selected time interval. This will eliminate the delay in checking your inbox."))
+sync.default = "6"
+sync:value("4", translate("4h"))
+sync:value("6", translate("6h"))
+sync:value("8", translate("8h"))
+sync:value("12", translate("12h"))
+sync.rmempty = true
 
 
 leds = s:taboption(this_tabb, Value, "smsled", translate("Notification LED"), translate("Select the notification LED."))

@@ -246,3 +246,21 @@ msgstr ""
 
 msgid "Each line must have the following format: 'AT Command name;AT Command'. Save to file '/etc/config/atcmds.user'."
 msgstr ""
+
+msgid "Restart the inbox checking process every"
+msgstr ""
+
+msgid "The process will restart at the selected time interval. This will eliminate the delay in checking your inbox."
+msgstr ""
+
+msgid "4h"
+msgstr ""
+
+msgid "6h"
+msgstr ""
+
+msgid "8h"
+msgstr ""
+
+msgid "12h"
+msgstr ""

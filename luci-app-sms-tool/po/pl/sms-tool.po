@@ -249,3 +249,21 @@ msgstr "Ustawienia dla poleceń AT"
 
 msgid "Each line must have the following format: 'AT Command name;AT Command'. Save to file '/etc/config/atcmds.user'."
 msgstr "Każda linijka powinna mieć następujący format: 'Etykieta polecenia;polecenie AT'. Dla wygody polecenia użytkownika zapisywane są w pliku '/etc/config/atcmds.user'."
+
+msgid "Restart the inbox checking process every"
+msgstr "Uruchom proces ponownie po"
+
+msgid "The process will restart at the selected time interval. This will eliminate the delay in checking your inbox."
+msgstr "Proces zostanie uruchomiony ponownie po wybranym przez użytkownika czasie. Pozwoli to wyeliminować opóźnienie w sprawdzaniu skrzynki odbiorczej."
+
+msgid "4h"
+msgstr "4 godz."
+
+msgid "6h"
+msgstr "6 godz."
+
+msgid "8h"
+msgstr "8 godz."
+
+msgid "12h"
+msgstr "12 godz."
