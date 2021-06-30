@@ -110,7 +110,7 @@ msgid "Send Code"
 msgstr "Wyślij kod"
 
 msgid "SMS Settings"
-msgstr "Ustawienia dla Wiadomości SMS"
+msgstr "Ustawienia dla wiadomości SMS"
 
 msgid "USSD Codes Settings"
 msgstr "Ustawienia dla kodów USSD"

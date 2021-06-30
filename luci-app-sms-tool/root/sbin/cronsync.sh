@@ -2,8 +2,8 @@
 
 [ -e /etc/crontabs/root ] || touch /etc/crontabs/root
 
-STAT=$(uci -q get sms_tool.general.lednotify)
-if [ "x$STAT" != "x1" ]; then
+SLED=$(uci -q get sms_tool.general.lednotify)
+if [ "x$SLED" != "x1" ]; then
 	if grep -q "smsled" /etc/crontabs/root; then
 		grep -v "/init.d/smsled" /etc/crontabs/root > /tmp/new_cron
 		mv /tmp/new_cron /etc/crontabs/root
