@@ -53,5 +53,6 @@ opkg install luci-app-sms-tool_1.8.8_all.ipk
 ![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(2).png)
 ![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.9FPLsmsconfig%20(3).png)
 
-## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podziękowania
+## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podziękowania dla
+- [obsy (Cezary Jackiewicz)](https://github.com/obsy)
 - [eko.one.pl](https://eko.one.pl/forum/viewtopic.php?id=20096)
