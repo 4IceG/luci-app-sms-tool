@@ -25,7 +25,8 @@ opkg install kmod-usb-serial kmod-usb-serial-option luci-compat
 opkg install sms-tool_2021-05-07-e9efc352-1_XXXXXX.ipk
 
 #Install gui.
-opkg install luci-app-sms-tool_1.8.8_all.ipk
+opkg install luci-app-sms-tool_1.8.9-14072021_all.ipk
+
 ```
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Screenshots / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Zrzuty ekranu
