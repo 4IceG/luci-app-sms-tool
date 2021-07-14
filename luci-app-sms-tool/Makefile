@@ -7,17 +7,14 @@ PKG_NAME:=luci-app-sms-tool
 LUCI_TITLE:=LuCI Support for sms_tool
 LUCI_PKGARCH:=all
 LUCI_DEPENDS:=+sms-tool +kmod-usb-serial +kmod-usb-serial-option +luci-compat
-PKG_VERSION:=1.8.9
+PKG_VERSION:=1.8.9-14072021
 PKG_LICENSE:=GPLv3
 
 define Package/luci-app-sms-tool/postinst
 #!/bin/sh
 rm -rf /tmp/luci-indexcache
 rm -rf /tmp/luci-modulecache/
-chmod 755 /sbin/smsled-init.sh
-chmod 755 /sbin/smsled.sh
-chmod 755 /etc/init.d/smsled
-/etc/init.d/smsled disable
+/sbin/set_sms_ports.sh
 exit 0
 endef
 
