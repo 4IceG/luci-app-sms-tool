@@ -123,6 +123,7 @@ function slots()
 	local sim = { }
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 	local led = tostring(uci:get("sms_tool", "general", "smsled"))
+	local dsled = tostring(uci:get("sms_tool", "general", "ledtype"))
 	local ln = tostring(uci:get("sms_tool", "general", "lednotify"))
 
 	local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
@@ -133,8 +134,13 @@ function slots()
 	sim["use"] = string.match(usex, '%d+')
 	local smscount = string.match(usex, '%d+')
 	if ln == "1" then
-		luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
       		luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
+		if dsled == "S" then
+		luci.util.exec("/etc/init.d/led restart")
+		end
+		if dsled == "D" then
+		luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+		end
  	end
 	sim["all"] = string.match(max, '%d+')
 	luci.http.prepare_content("application/json")

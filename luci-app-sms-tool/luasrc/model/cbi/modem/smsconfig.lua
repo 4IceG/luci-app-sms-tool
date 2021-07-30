@@ -16,6 +16,7 @@ local SMSC_FILE_PATH = "/etc/config/smscommands.user"
 local AT_FILE_PATH = "/etc/config/atcmds.user"
 
 local led = tostring(uci:get("sms_tool", "general", "smsled"))
+local dsled = tostring(uci:get("sms_tool", "general", "ledtype"))
 local ledtime = tostring(uci:get("sms_tool", "general", "checktime"))
 
 local m
@@ -161,13 +162,15 @@ if devv ~= nil or devv ~= '' then
 if ( smscount ~= nil and led ~= nil ) then
     if value == '1' then
 
-        luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
+       luci.sys.call("echo " .. smscount .. " > /etc/config/sms_count")
 	luci.sys.call("uci set sms_tool.general.lednotify=" .. 1 .. ";/etc/init.d/smsled enable;/etc/init.d/smsled start")
 	luci.sys.call("/sbin/cronsync.sh")
 
     elseif value == '0' then
-       	luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/etc/init.d/smsled stop;/etc/init.d/smsled disable")
-	luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+       luci.sys.call("uci set sms_tool.general.lednotify=" .. 0 .. ";/etc/init.d/smsled stop;/etc/init.d/smsled disable")
+	    if dsled == 'D' then
+		luci.sys.call("echo 0 > '/sys/class/leds/" .. led .. "/brightness'")
+	    end
 	luci.sys.call("/sbin/cronsync.sh")
 
     end
@@ -206,6 +209,12 @@ local all = string.sub (status, 17)
 leds:value(all, all)
 end
 end
+
+oled = s:taboption(this_tabb, ListValue, "ledtype", translate("The diode is dedicated only to these notifications"), translate("Please select 'No' if the router has only one LED or if the LED are multi-tasking."))
+oled.default = "D"
+oled:value("S", translate("No"))
+oled:value("D", translate("Yes"))
+oled.rmempty = true
 
 local timeon = s:taboption(this_tabb, Value, "ledtimeon", translate("Turn on the LED for seconds(s)"), translate("Specify for how long the LED should be on."))
 timeon.rmempty = false
