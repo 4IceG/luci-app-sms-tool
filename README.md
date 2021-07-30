@@ -33,26 +33,26 @@ opkg install luci-app-sms-tool_1.9.0-30072021_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLreadsms.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/1b.png)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsendsms.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/2.png)
 
 - "USSD Codes" window / Okno kodów USSD:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLussd.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/3.png)
 
 - "AT Commands" window / Okno poleceń AT:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLatcommandz.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/4.png)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(1).png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.8FPLsmsconfig%20(2).png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.8.8F/1.8.9FPLsmsconfig%20(3).png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k1b.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k2b.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k3b.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k4b.png)
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podziękowania dla
 - [obsy (Cezary Jackiewicz)](https://github.com/obsy)
