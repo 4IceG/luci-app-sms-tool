@@ -1,4 +1,4 @@
--- Copyright 2020-2021 Rafa³ Wabik (IceG) - From eko.one.pl forum
+-- Copyright 2020-2021 RafaÂ³ Wabik (IceG) - From eko.one.pl forum
 -- Licensed to the GNU General Public License v3.0.
 
 local util = require "luci.util"
@@ -210,11 +210,11 @@ leds:value(all, all)
 end
 end
 
-oled = s:taboption(this_tabb, ListValue, "ledtype", translate("The diode is dedicated only to these notifications"), translate("Please select 'No' if the router has only one LED or if the LED are multi-tasking."))
+oled = s:taboption(this_tabb, ListValue, "ledtype", translate("The diode is dedicated only to these notifications"), translate("Select 'No' in case the router has only one LED or if the LED is multi-tasking."))
 oled.default = "D"
 oled:value("S", translate("No"))
 oled:value("D", translate("Yes"))
-oled.rmempty = true
+oled.rmempty = trueStylistic correction
 
 local timeon = s:taboption(this_tabb, Value, "ledtimeon", translate("Turn on the LED for seconds(s)"), translate("Specify for how long the LED should be on."))
 timeon.rmempty = false
