@@ -271,8 +271,8 @@ msgstr "12 godz."
 msgid "The diode is dedicated only to these notifications"
 msgstr "Dioda jest dedykowana tylko tym powiadomieniom"
 
-msgid "Please select 'No' if the router has only one LED or if the LED are multi-tasking."
-msgstr "Proszę wybrać 'Nie' w przypadku, kiedy router ma tylko jedną diodę lub gdy dioda obsługuje wiele zadań."
+msgid "Select 'No' in case the router has only one LED or if the LED is multi-tasking."
+msgstr "Wybierz 'Nie' w przypadku, kiedy router ma tylko jedną diodę lub gdy dioda obsługuje wiele zadań."
 
 msgid "No"
 msgstr "Nie"
