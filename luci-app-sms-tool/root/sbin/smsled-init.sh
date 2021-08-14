@@ -8,14 +8,13 @@
 	TM=$(($TX * 60))
 
 while [ 1 ]; do 
-
 	LED=$(uci -q get sms_tool.general.lednotify)
 	if [ $LED == "1" ]; then
     	sleep $TM
-	(/sbin/smsled.sh >/dev/null 2>&1 )&
-	continue
+		(/sbin/smsled.sh >/dev/null 2>&1 )&
+		continue
 	fi
-
+	sleep 1
 done
  
 exit 0
