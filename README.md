@@ -22,10 +22,10 @@ Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sm
 opkg install kmod-usb-serial kmod-usb-serial-option luci-compat
 
 #Install sms-tool.
-opkg install sms-tool_2021-05-07-e9efc352-1_XXXXXX.ipk
+opkg install sms-tool_2021-08-24-57a68d07-1_XXX.ipk
 
 #Install gui.
-opkg install luci-app-sms-tool_1.9.0-14082021_all.ipk
+opkg install luci-app-sms-tool_1.9.1-19092021_all.ipk
 
 ```
 
@@ -33,26 +33,26 @@ opkg install luci-app-sms-tool_1.9.0-14082021_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/1b.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/1.png)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/2.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/2b.png)
 
 - "USSD Codes" window / Okno kodów USSD:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/3.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/3.png)
 
 - "AT Commands" window / Okno poleceń AT:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/4.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/4.png)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k1b.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k2b.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k3b.png)
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.0/k4b.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/u1.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/u2.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/u3.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/u4.png)
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podziękowania dla
 - [obsy (Cezary Jackiewicz)](https://github.com/obsy)
