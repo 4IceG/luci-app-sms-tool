@@ -43,6 +43,9 @@ msgstr "Proszę poprawić numer telefonu"
 msgid "Please enter a message text"
 msgstr "Proszę podać treść wiadomości"
 
+msgid "Please select the message(s) to be deleted"
+msgstr "Proszę wybrać wiadomość(i) do usunięcia"
+
 msgid "Reply"
 msgstr "Odpowiedź"
 
@@ -52,8 +55,8 @@ msgstr "SMS został wysłany"
 msgid "Please enter a USSD code"
 msgstr "Proszę podać kod do wysłania"
 
-msgid "Delete selected message?"
-msgstr "Usunąć wybraną wiadomość?"
+msgid "Delete selected message(s)?"
+msgstr "Usunąć wybraną(e) wiadomość(i)?"
 
 msgid "Delete all the messages?"
 msgstr "Usunąć wszystkie wiadomości?"
@@ -87,6 +90,9 @@ msgstr "Wiadomości (Odebrane / Maksymalnie)"
 
 msgid "Delete Selected"
 msgstr "Usuń wybraną"
+
+msgid "Delete message(s)"
+msgstr "Usuń wiadomość(i)"
 
 msgid "Delete All"
 msgstr "Usuń wszystkie"

@@ -14,7 +14,7 @@ fi
 
 if ! grep -q "smsled" /etc/crontabs/root; then
 PTR=$(uci -q get sms_tool.general.prestart)
-	echo "1 */$PTR * * * /etc/init.d/smsled disable && sleep 3 && /etc/init.d/smsled start" >> /etc/crontabs/root
+	echo "1 */$PTR * * * /etc/init.d/smsled enable" >> /etc/crontabs/root
 	/etc/init.d/cron restart
 fi
 
