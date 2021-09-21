@@ -44,7 +44,7 @@ msgid "Please enter a message text"
 msgstr "Proszę podać treść wiadomości"
 
 msgid "Please select the message(s) to be deleted"
-msgstr "Proszę wybrać wiadomość(i) do usunięcia"
+msgstr "Proszę wybrać wiadomość(-ci) do usunięcia"
 
 msgid "Reply"
 msgstr "Odpowiedź"
@@ -56,7 +56,7 @@ msgid "Please enter a USSD code"
 msgstr "Proszę podać kod do wysłania"
 
 msgid "Delete selected message(s)?"
-msgstr "Usunąć wybraną(e) wiadomość(i)?"
+msgstr "Usunąć wybraną(-e) wiadomość(-ci)?"
 
 msgid "Delete all the messages?"
 msgstr "Usunąć wszystkie wiadomości?"
@@ -92,7 +92,7 @@ msgid "Delete Selected"
 msgstr "Usuń wybraną"
 
 msgid "Delete message(s)"
-msgstr "Usuń wiadomość(i)"
+msgstr "Usuń wiadomość(-ci)"
 
 msgid "Delete All"
 msgstr "Usuń wszystkie"
@@ -143,7 +143,7 @@ msgid "PHONE_NUMBER"
 msgstr "48NumerTelefonu"
 
 msgid "Refresh SMS"
-msgstr "Odśwież wiadomości"
+msgstr "Odśwież"
 
 msgid "Sending USSD Code in plain text"
 msgstr "Wysyłaj kod USSD jawnym tekstem"
