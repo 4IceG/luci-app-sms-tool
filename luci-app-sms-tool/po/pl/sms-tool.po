@@ -188,7 +188,7 @@ msgid "The LED informs about a new message. Before activating this function, ple
 msgstr "Powiadomienie diodą o nowej wiadomości. Przed uruchomieniem tej funkcji proszę ustawić port odczytu wiadomości, czas sprawdzania skrzynki odbiorczej oraz wybrać diodę powiadomień."
 
 msgid "Check inbox every minute(s)"
-msgstr "Sprawdzaj skrzynkę odbiorczą co minut(y)"
+msgstr "Sprawdzaj skrzynkę odbiorczą co minut(-y)"
 
 msgid "Specify how many minutes you want your inbox to be checked."
 msgstr "Podaj co ile minut ma być sprawdzana skrzynka odbiorcza w poszukiwaniu nowych wiadomości."
@@ -203,10 +203,10 @@ msgid "Notify new messages"
 msgstr "Powiadomienie o nowych wiadomościach"
 
 msgid "Turn on the LED for seconds(s)"
-msgstr "Włącz diodę na sekund(y)"
+msgstr "Włącz diodę na sekund(-y)"
 
 msgid "Turn off the LED for seconds(s)"
-msgstr "Wyłącz diodę na sekund(y)"
+msgstr "Wyłącz diodę na sekund(-y)"
 
 msgid "Specify for how long the LED should be on."
 msgstr "Podaj przez jaki czas dioda ma być włączona."
