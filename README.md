@@ -33,7 +33,7 @@ opkg install luci-app-sms-tool_1.9.1-19092021_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/1.png)
+![](https://raw.githubusercontent.com/4IceG/Personal_data/master/zrzuty/1.9.1/1b.png)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
