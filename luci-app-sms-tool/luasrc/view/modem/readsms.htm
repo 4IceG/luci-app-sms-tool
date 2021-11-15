@@ -8,7 +8,7 @@
 
 	local devv = tostring(uci:get("sms_tool", "general", "readport"))
 	local smsmem = tostring(uci:get("sms_tool", "general", "storage"))
-	local sms = tostring(luci.sys.exec("sms_tool -s" .. smsmem .. " -d " .. devv .. " -f '%Y-%m-%d %H:%M:%S' -j recv 2>/dev/null"))
+	local sms = tostring(luci.sys.exec("sms_tool -s" .. smsmem .. " -d " .. devv .. " -f '%Y-%m-%d %H:%M' -j recv 2>/dev/null"))
 	local smsmer = tostring(uci:get("sms_tool", "general", "mergesms"))
 	local smscuta = string.sub (sms, 8)
 	local smscut = smscuta:sub(1, #smscuta - 2)
@@ -114,9 +114,9 @@ tr:nth-child(odd) {background-color: var(--background-color-medium)}
         		result.push(this[o.sender]);
         		return;
     			}
-			if (this[o.sender].total == o.total && this[o.sender].part > 0) {
-    			this[o.sender].content += o.content;
-    			this[o.sender].index += '-' + o.index;}
+			if (this[o.sender].total == o.total && this[o.sender].timestamp == o.timestamp && this[o.sender].sender == o.sender && this[o.sender].part > 0) {
+    			this[o.sender].index += '-' + o.index;    			
+			this[o.sender].content += o.content;}
 			else {
 			this[o.sender] = { index: o.index, sender: o.sender, timestamp: o.timestamp, part: o.part, total: o.total, content: o.content };
         		result.push(this[o.sender]);
@@ -266,8 +266,8 @@ if (document.querySelectorAll('input[name="smsn"]:checked').length === document.
   	<tr class="tr table-titles">
 
     	<th class="th left" width="7%"><input type='checkbox' id='allcheck' onclick='toggle(this);'/></td>
-    	<th class="th left" width="11%"><strong><%:From%></strong></td>
-    	<th class="th left" width="15%"><strong><%:Received%></strong></td>
+    	<th class="th left" width="12%"><strong><%:From%></strong></td>
+    	<th class="th left" width="14%"><strong><%:Received%></strong></td>
     	<th class="th center" width="66%" ><strong><%:Message%></strong></td>
 
  	</tr>
