@@ -14,7 +14,7 @@ Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sm
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Preview and quick configuration (modem Quectel EM160R-GL) / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podgląd oraz szybka konfiguracja (modem Quectel EM160R-GL)
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193gif.gif?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/1.9.4-20220325.gif?raw=true)
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Installation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Instalacja
 ``` bash
@@ -37,26 +37,26 @@ opkg install /tmp/luci-app-sms-tool_1.9.4-20220325_all.ipk
 
 - "Received Messages" window / Okno odebranych wiadomości:
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.1.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Odebrane%20wiadomo%C5%9Bci%20-%20LuCI.png?raw=true)
 
 - "Sending Message" window / Okno wysyłania wiadomości:
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.2.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Wysy%C5%82anie%20wiadomo%C5%9Bci%20-%20LuCI.png?raw=true)
 
 - "USSD Codes" window / Okno kodów USSD:
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.3.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Kody%20USSD%20-%20LuCI.png?raw=true)
 
 - "AT Commands" window / Okno poleceń AT:
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.4.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Polecenia%20AT%20-%20LuCI.png?raw=true)
 
 - "Configuration" window / Okno konfiguracji:
 
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.5a.png?raw=true)
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.5b.png?raw=true)
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.5c.png?raw=true)
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/193/193.5d.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Konfiguracja%20-%20LuCI1.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Konfiguracja%20-%20LuCI2.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Konfiguracja%20-%20LuCI3.png?raw=true)
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/Konfiguracja%20-%20LuCI4.png?raw=true)
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="32"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="32"> Podziękowania dla
 - [obsy (Cezary Jackiewicz)](https://github.com/obsy)
