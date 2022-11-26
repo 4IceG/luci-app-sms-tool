@@ -20,21 +20,35 @@
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Installation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Instalacja
 ``` bash
+#Package dependencies:
+
+#For conventional modems.
 #Modem drivers are required for proper operation.
-opkg install kmod-usb-serial kmod-usb-serial-option luci-compat
+opkg install kmod-usb-serial kmod-usb-serial-option sms-tool
 
-#The sms-tool package is not available in the OpenWrt core repository. 
-#Sms-tool is only available in the eko.one.pl forum repository. 
-#If you do not have an image from forum eko.one.pl you have to compile the package manually.
+#For Huawei HiLink modems.
+opkg install wget-nossl sms-tool
 
-#For images from the eko.one.pl forum we proceed:
+#The sms-tool package is available in the OpenWrt Master repository.
+
+#1a. Install sms-tool from Master.
 opkg update
 opkg install sms-tool
 
-wget https://github.com/4IceG/luci-app-sms-tool/releases/download/1.9.4-20220325/luci-app-sms-tool_1.9.4-20220325_all.ipk -O /tmp/luci-app-sms-tool_1.9.4-20220325_all.ipk
-opkg install /tmp/luci-app-sms-tool_1.9.4-20220325_all.ipk
+#1b. Download the sms-tool package and install manualy.
+#An example link to the package.
+#https://downloads.openwrt.org/snapshots/packages/*architecture*/packages/sms-tool_2022-03-21-f07699ab-1_*architecture*.ipk
 
+#2. Add my repository (https://github.com/4IceG/Modem-extras) to the image and follow the commands.
+#For images downloaded from eko.one.pl.
+#Installation procedure is similar, only there is no need to manually download the sms-tool package.
+opkg update
+opkg install luci-app-sms-tool
 
+```
+
+## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> User compilation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Kompilacja przez użytkownika
+``` bash
 #The package can be added to Openwrt sources in two ways:
 
 cd feeds/luci/applications/
