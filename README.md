@@ -26,9 +26,6 @@
 #Modem drivers are required for proper operation.
 opkg install kmod-usb-serial kmod-usb-serial-option sms-tool
 
-#For Huawei HiLink modems.
-opkg install wget-nossl sms-tool
-
 #The sms-tool package is available in the OpenWrt Master repository.
 
 #1a. Install sms-tool from Master.
