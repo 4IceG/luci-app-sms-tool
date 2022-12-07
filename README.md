@@ -40,13 +40,12 @@ https://downloads.openwrt.org/snapshots/packages/*architecture*/packages/sms-too
 ```
 
 #### 2. Add my repository (https://github.com/4IceG/Modem-extras) to the image and follow the commands.
-For images downloaded from eko.one.pl.
-Installation procedure is similar, only there is no need to manually download the sms-tool package.
 ``` bash
 opkg update
 opkg install luci-app-sms-tool
-
 ```
+For images downloaded from eko.one.pl.
+Installation procedure is similar, only there is no need to manually download the sms-tool package.
 
 ## <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> User compilation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Kompilacja przez użytkownika
 ``` bash
