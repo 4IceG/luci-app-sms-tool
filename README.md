@@ -14,9 +14,9 @@
 ![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/1.9.4-20220325.gif?raw=true)
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> What You Should Know / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Co powinieneś wiedzieć
-> Notification option for luci-app-sms-tool package does not work, needs to be rewritten to support procd.
+> Preferred version OpenWrt =< 19.07 | Package may run with incomplete functionality on 21.02.0 (+luci-compat).
 
-> Opcja powiadomień diodą w pakiecie luci-app-sms-tool nie działa, należy ją przepisać, aby obsługiwała procd.
+> Preferowana wersja OpenWrt =< 19.07 | Pakiet może działać z niepełną funkcjonalnością na 21.02.0 (+luci-compat).
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Installation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Instalacja
 
