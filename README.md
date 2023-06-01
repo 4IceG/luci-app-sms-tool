@@ -9,16 +9,19 @@
 
 #### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sms_tool https://eko.one.pl/?p=openwrt-sms_tool. Aplikacji umożliwia obsługę wiadomości sms i kodów ussd. Działa z modemami mPCI-E oraz USB 3G/LTE. Nie działa z modemami HiLink/RNDIS.
 
-#### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Preview and quick configuration (modem Quectel EM160R-GL) / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Podgląd oraz szybka konfiguracja (modem Quectel EM160R-GL)
-
-![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/1.9.4-20220325.gif?raw=true)
-
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> What You Should Know / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Co powinieneś wiedzieć
 > Preferred version OpenWrt =< 19.07 | Package may run with incomplete functionality on 21.02.0 (+luci-compat).
 
 > Preferowana wersja OpenWrt =< 19.07 | Pakiet może działać z niepełną funkcjonalnością na 21.02.0 (+luci-compat).
 
+#### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Preview and quick configuration (modem Quectel EM160R-GL) / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Podgląd oraz szybka konfiguracja (modem Quectel EM160R-GL)
+
+![](https://github.com/4IceG/Personal_data/blob/master/zrzuty/1.9.4-20220325/1.9.4-20220325.gif?raw=true)
+
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Installation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Instalacja
+
+<details>
+   <summary>Pokaż | Show me</summary>
 
 #### Package dependencies for conventional modems.
 Modem drivers are required for proper operation.
@@ -95,8 +98,14 @@ opkg install luci-app-sms-tool
 ```
 For images downloaded from eko.one.pl.
 Installation procedure is similar, only there is no need to manually download the sms-tool package.
+   
+</details>
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> User compilation / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Kompilacja przez użytkownika
+
+<details>
+   <summary>Pokaż | Show me</summary>
+
 ``` bash
 #The package can be added to Openwrt sources in two ways:
 
@@ -122,6 +131,8 @@ packages/luci-app-sms-tool/Makefile
 #Then you can compile the packages one by one, an example command:
 make V=s -j1 feeds/luci/applications/luci-app-sms-tool/compile
 ```
+   
+</details>
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Screenshots / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Zrzuty ekranu
 
