@@ -161,4 +161,4 @@ make V=s -j1 feeds/luci/applications/luci-app-sms-tool/compile
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Thanks to / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Podziękowania dla
 - [obsy (Cezary Jackiewicz)](https://github.com/obsy)
-- [eko.one.pl](https://eko.one.pl/forum/viewtopic.php?id=20096)
+- [Users of the eko.one.pl forum](https://eko.one.pl/forum/viewtopic.php?id=20096)
