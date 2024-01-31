@@ -74,8 +74,8 @@ opkg install sms-tool
 > In the link below, replace ```*architecture*``` with the architecture of your router, e.g. arm_cortex-a7_neon-vfpv4, mipsel_24kc.
 
 ``` bash
-wget https://downloads.openwrt.org/snapshots/packages/*architecture*/packages/sms-tool_2022-03-21-f07699ab-1_*architecture*.ipk -O /tmp/sms-tool_2022-03-21.ipk
-opkg install /tmp/sms-tool_2022-03-21.ipk
+wget https://downloads.openwrt.org/snapshots/packages/*architecture*/packages/sms-tool_2023-09-21-1b6ca032-1_*architecture*.ipk -O /tmp/sms-tool_2023-09-21.ipk
+opkg install /tmp/sms-tool_2023-09-21.ipk
 ```
 
 #### Another way is to download the package manually.
@@ -88,7 +88,7 @@ https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/
 > Go to the "packages" folder.   
 https://downloads.openwrt.org/snapshots/packages/mipsel_24kc/packages/
 
-> Looking for "sms-tool_2022-03-21". We can use search by using Ctr + F and typing "sms-tool".
+> Looking for "sms-tool_2023-09-21". We can use search by using Ctr + F and typing "sms-tool".
 Save the package to your computer for further installation on the router.
 
 #### Step 2. Add my repository (https://github.com/4IceG/Modem-extras) to the image and follow the commands.
