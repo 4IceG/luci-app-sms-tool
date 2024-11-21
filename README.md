@@ -10,9 +10,12 @@
 #### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Luci-app-sms-tool jest prostym interfejsem użytkownika dla projetu/aplikacji sms_tool https://eko.one.pl/?p=openwrt-sms_tool. Aplikacji umożliwia obsługę wiadomości sms i kodów ussd. Działa z modemami mPCI-E oraz USB 3G/LTE. Nie działa z modemami HiLink/RNDIS.
 
 ### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> What You Should Know / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Co powinieneś wiedzieć
-> Preferred version OpenWrt =< 19.07 | Package may run with incomplete functionality on 21.02.0 (+luci-compat).
+> Preferred version OpenWrt =< 19.07 | Package may run with incomplete functionality on 21.02.0 (+luci-compat).   
+> For OpenWrt versions >= 21.02 it is recommended to use the JS version (https://github.com/4IceG/luci-app-sms-tool-js).
 
-> Preferowana wersja OpenWrt =< 19.07 | Pakiet może działać z niepełną funkcjonalnością na 21.02.0 (+luci-compat).
+> Preferowana wersja OpenWrt =< 19.07 | Pakiet może działać z niepełną funkcjonalnością na 21.02.0 (+luci-compat).   
+> W przypadku wersji OpenWrt >= 21.02 zalecane jest używanie wersji JS (https://github.com/4IceG/luci-app-sms-tool-js).
+
 
 #### <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_United_Kingdom.png" height="24"> Preview and quick configuration (modem Quectel EM160R-GL) / <img src="https://raw.githubusercontent.com/4IceG/Personal_data/master/dooffy_design_icons_EU_flags_Poland.png" height="24"> Podgląd oraz szybka konfiguracja (modem Quectel EM160R-GL)
 
